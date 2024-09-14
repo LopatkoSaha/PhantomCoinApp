@@ -1,25 +1,22 @@
-@import  "./reset.scss";
-@import  "./variables/global.scss";
-@import  "./themes/normal.scss";
-@import  "./themes/dark.scss";
-
-// :root {
-//     --primary-color: #f00;
-// }
+@import "./reset.scss";
+@import "./variables/global.scss";
 
 .app {
-    font: var(--font-m);
-    background: var(--bg-color);
-    color: var(--primary-color);
-
-    min-height: 100vh;
+  font: var(--font-m);
+  color: var(--color-text-light);
+  min-height: 100vh;
+  background-color: var(--color-bg-dark3);
 }
 
 .content-page {
-    display: flex;
+  display: flex;
+  padding-top: var(--navbar-height);
+  width: 90vw;
+  height: 100vh;
+  margin: auto;
 }
 
 .page-wrapper {
-    flex-grow: 1;
-    padding: 20px;
+  flex-grow: 1;
+  background-color: var(--color-bg-dark3);
 }

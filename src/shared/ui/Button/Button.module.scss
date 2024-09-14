@@ -1,0 +1,31 @@
+.Button {
+  cursor: pointer;
+  color: var(--color-bg-light1);
+  padding: 6px 15px;
+  border-radius: 7%;
+
+  &.size_m {
+    font: var(--font-m);
+  }
+
+  &.size_l {
+    font: var(--font-l);
+  }
+
+  &.size_xl {
+    font: var(--font-xl);
+  }
+  &.dark {
+    background-color: var(--color-bg-dark1);
+    color: var(--color-text-light);
+  }
+  &.light {
+    background-color: var(--color-bg-light1);
+    color: var(--color-text-dark);
+  }
+}
+@media (max-width: 767px) {
+  .Button {
+  }
+}
+

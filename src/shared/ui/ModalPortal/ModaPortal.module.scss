@@ -1,0 +1,51 @@
+.ModalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: var(--modal-z-index);
+}
+
+.ModalContent {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  position: relative;
+  width: 500px;
+  // transition: 0.5s transform cubic-bezier(0, -0.71, 0, 2);
+  // &:hover {
+  //   transform: rotate(45deg) translateX(200px);
+  // }
+  // animation: lol 3s 2;
+  // &:hover {
+  // }
+}
+
+@keyframes lol {
+  50% {
+    width: 100px;
+    opacity: 0.5;
+  }
+  75% {
+    width: 200px;
+  }
+  100% {
+    width: 500px;
+    opacity: 1;
+  }
+}
+
+.CloseButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}

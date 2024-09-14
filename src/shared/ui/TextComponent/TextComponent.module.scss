@@ -1,0 +1,18 @@
+.textWrapper {
+  width: 80vw;
+  min-height: 10vh;
+  margin: auto;
+  z-index: 10;
+}
+.title {
+  color: var(--color-text-light);
+  text-align: center;
+  margin-top: 2%;
+}
+.description {
+  width: 70%;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--color-text-light);
+  text-align: center;
+  margin: 15px auto;
+}

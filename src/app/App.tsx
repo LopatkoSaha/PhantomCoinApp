@@ -1,9 +1,10 @@
-import "./styles/index.scss";
-
 import { Suspense } from "react";
+
+import "./styles/index.scss";
 import { AppRouter } from "./provider/router";
 import { Navbar } from "./widgets/Navbar";
-import { Sidebar } from "./widgets/Sidebar";
+import { Message } from "shared/ui/Message/Message";
+import { Modal } from "shared/ui/Modal/Modal";
 
 const App = () => {
   return (
@@ -11,9 +12,10 @@ const App = () => {
       <Suspense fallback="">
         <Navbar />
         <div className="content-page">
-          <Sidebar />
           <AppRouter />
         </div>
+        <Modal />
+        <Message />
       </Suspense>
     </div>
   );

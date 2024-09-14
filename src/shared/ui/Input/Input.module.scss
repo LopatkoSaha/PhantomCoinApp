@@ -1,0 +1,12 @@
+input {
+  display: block;
+  margin: 10px;
+}
+
+.isValid {
+  outline: 1px solid green;
+}
+
+.noValid {
+  outline: 1px solid red;
+}
