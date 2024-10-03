@@ -2,9 +2,9 @@ import { Suspense } from "react";
 
 import "./styles/index.scss";
 import { AppRouter } from "./provider/router";
-import { Navbar } from "./widgets/Navbar";
-import { Message } from "shared/ui/Message/Message";
-import { Modal } from "shared/ui/Modal/Modal";
+import { Navbar } from "./layout/Navbar";
+import { Message } from "shared/elements/Message/Message";
+import { Modal } from "shared/elements/Modal/Modal";
 
 const App = () => {
   return (

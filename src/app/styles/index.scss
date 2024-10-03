@@ -4,19 +4,24 @@
 .app {
   font: var(--font-m);
   color: var(--color-text-light);
-  min-height: 100vh;
-  background-color: var(--color-bg-dark3);
-}
-
-.content-page {
-  display: flex;
-  padding-top: var(--navbar-height);
-  width: 90vw;
+  width: 100vw;
   height: 100vh;
-  margin: auto;
-}
-
-.page-wrapper {
-  flex-grow: 1;
   background-color: var(--color-bg-dark3);
+
+  .content-page {
+    background-color: var(--color-bg-dark3);
+    padding-top: var(--navbar-height);
+    width: 100%;
+    min-height: 100%;
+    margin: auto;
+  }
+
+  .page-wrapper {
+    width: 90%;
+    min-height: 100%;
+    flex-grow: 1;
+    background-color: var(--color-bg-dark3);
+    margin: auto;
+    box-sizing: content-box;
+  }
 }

@@ -1,3 +1,3 @@
 export const toLength = (data: string) => {
-    return data.length > 5;
+    return data.length > 3;
   };

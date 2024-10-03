@@ -1,11 +1,15 @@
 import { configureStore } from "@reduxjs/toolkit";
 import modalReducer from "./slices/modalSlice";
-import showMessage from "./slices/messageSlice";
+import messageReducer from "./slices/messageSlice";
+import user from "./slices/userSlice";
+import allUsers from "./slices/allUsersSlice";
 
 export const store = configureStore({
   reducer: {
     modal: modalReducer,
-    message: showMessage,
+    message: messageReducer,
+    user: user,
+    allUsers: allUsers,
   },
 });
 

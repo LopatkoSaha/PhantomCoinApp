@@ -1,0 +1,21 @@
+.LogFormWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+  .LogFormHeader {
+    color: rgb(92, 92, 92);
+  }
+
+  .InputContainer {
+    margin: 1vh;
+  }
+
+  .ButtonContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 50%;
+  }
+}
