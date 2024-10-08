@@ -1,5 +1,5 @@
 import style from "./AboutPage.module.scss";
-import { AllUsers } from "shared/elements/AllUsers/AllUsers";
+import { AllUsers } from "shared/components/AllUsers/AllUsers";
 
 const AboutPage = () => {
   return (

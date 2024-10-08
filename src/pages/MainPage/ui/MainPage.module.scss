@@ -12,6 +12,7 @@
   background-position: bottom;
   background-repeat: no-repeat;
   background-size: contain;
+  border: 1px solid white;
 }
 
 .textContainer {
@@ -34,6 +35,6 @@
     color: var(--color-text-light);
     text-align: center;
     z-index: 2;
-    margin: 4vh auto;
+    margin: 4vh 10%;
   }
 }

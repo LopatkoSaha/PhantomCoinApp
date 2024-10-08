@@ -5,6 +5,7 @@ import { AppRouter } from "./provider/router";
 import { Navbar } from "./layout/Navbar";
 import { Message } from "shared/elements/Message/Message";
 import { Modal } from "shared/elements/Modal/Modal";
+import { ChargeOfCourse } from "shared/components/ChargeOfCourse";
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
         <Modal />
         <Message />
       </Suspense>
+      <ChargeOfCourse />
     </div>
   );
 };

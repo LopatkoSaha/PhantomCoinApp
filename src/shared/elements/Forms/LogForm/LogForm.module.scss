@@ -17,3 +17,27 @@
     width: 40%;
   }
 }
+
+@media (max-width: 767px) {
+  .LogFormWrapper {
+    width: 80%;
+    height: 80%;
+    margin: auto;
+    font-size: 2rem;
+
+    .LogFormHeader {
+      line-height: 5vh;
+    }
+    .InputContainer {
+      margin: 5vh;
+    }
+    .ButtonContainer {
+      font-size: 2rem;
+      width: 60vw;
+      margin: auto;
+      & * {
+        font-size: 2rem;
+      }
+    }
+  }
+}
