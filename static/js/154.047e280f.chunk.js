@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkphantom_coin=self.webpackChunkphantom_coin||[]).push([[154],{7154:(c,e,n)=>{n.r(e),n.d(e,{default:()=>r});const s={};var a=n(579);const r=()=>(0,a.jsx)("div",{className:s.wrapperBuyCurrency,children:"\u041f\u043e\u043a\u0443\u043f\u043a\u0430 \u0432\u0430\u043b\u044e\u0442\u044b"})}}]);
+//# sourceMappingURL=154.047e280f.chunk.js.map

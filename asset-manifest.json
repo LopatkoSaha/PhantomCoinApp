@@ -1,0 +1,33 @@
+{
+  "files": {
+    "main.css": "/LopatkoSaha/PhantomCoinApp.git/static/css/main.a909e46e.css",
+    "main.js": "/LopatkoSaha/PhantomCoinApp.git/static/js/main.5f0cfcc1.js",
+    "static/css/999.ef24e6ef.chunk.css": "/LopatkoSaha/PhantomCoinApp.git/static/css/999.ef24e6ef.chunk.css",
+    "static/js/999.b4bfd732.chunk.js": "/LopatkoSaha/PhantomCoinApp.git/static/js/999.b4bfd732.chunk.js",
+    "static/css/327.23cef87b.chunk.css": "/LopatkoSaha/PhantomCoinApp.git/static/css/327.23cef87b.chunk.css",
+    "static/js/327.8c88004d.chunk.js": "/LopatkoSaha/PhantomCoinApp.git/static/js/327.8c88004d.chunk.js",
+    "static/css/154.31d6cfe0.chunk.css": "/LopatkoSaha/PhantomCoinApp.git/static/css/154.31d6cfe0.chunk.css",
+    "static/js/154.047e280f.chunk.js": "/LopatkoSaha/PhantomCoinApp.git/static/js/154.047e280f.chunk.js",
+    "static/css/724.8488aeb6.chunk.css": "/LopatkoSaha/PhantomCoinApp.git/static/css/724.8488aeb6.chunk.css",
+    "static/js/724.fe3fbca1.chunk.js": "/LopatkoSaha/PhantomCoinApp.git/static/js/724.fe3fbca1.chunk.js",
+    "static/js/380.9b97c239.chunk.js": "/LopatkoSaha/PhantomCoinApp.git/static/js/380.9b97c239.chunk.js",
+    "static/media/logo-phantom-slogan.png": "/LopatkoSaha/PhantomCoinApp.git/static/media/logo-phantom-slogan.52dbdc08c993cee9e151.png",
+    "static/media/error-icon.png": "/LopatkoSaha/PhantomCoinApp.git/static/media/error-icon.9cda71e4b7700baf233b.png",
+    "static/media/warning-icon1.png": "/LopatkoSaha/PhantomCoinApp.git/static/media/warning-icon1.51a411f76428fb395760.png",
+    "index.html": "/LopatkoSaha/PhantomCoinApp.git/index.html",
+    "main.a909e46e.css.map": "/LopatkoSaha/PhantomCoinApp.git/static/css/main.a909e46e.css.map",
+    "main.5f0cfcc1.js.map": "/LopatkoSaha/PhantomCoinApp.git/static/js/main.5f0cfcc1.js.map",
+    "999.ef24e6ef.chunk.css.map": "/LopatkoSaha/PhantomCoinApp.git/static/css/999.ef24e6ef.chunk.css.map",
+    "999.b4bfd732.chunk.js.map": "/LopatkoSaha/PhantomCoinApp.git/static/js/999.b4bfd732.chunk.js.map",
+    "327.23cef87b.chunk.css.map": "/LopatkoSaha/PhantomCoinApp.git/static/css/327.23cef87b.chunk.css.map",
+    "327.8c88004d.chunk.js.map": "/LopatkoSaha/PhantomCoinApp.git/static/js/327.8c88004d.chunk.js.map",
+    "154.047e280f.chunk.js.map": "/LopatkoSaha/PhantomCoinApp.git/static/js/154.047e280f.chunk.js.map",
+    "724.8488aeb6.chunk.css.map": "/LopatkoSaha/PhantomCoinApp.git/static/css/724.8488aeb6.chunk.css.map",
+    "724.fe3fbca1.chunk.js.map": "/LopatkoSaha/PhantomCoinApp.git/static/js/724.fe3fbca1.chunk.js.map",
+    "380.9b97c239.chunk.js.map": "/LopatkoSaha/PhantomCoinApp.git/static/js/380.9b97c239.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a909e46e.css",
+    "static/js/main.5f0cfcc1.js"
+  ]
+}
