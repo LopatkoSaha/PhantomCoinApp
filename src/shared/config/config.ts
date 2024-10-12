@@ -17,4 +17,16 @@ export const currencyList = {
     "https://s1.bycsi.com/app/assets/token/29fa38f10afca417737d763764fb3027.svg",
 };
 
+export const lexiconCuts = {
+  bitcoin: "BTC",
+  bitTorrent: "BTT",
+  dogs: "DOGS",
+  ethereum: "ETH",
+  notcoin: "NOT",
+  sui: "SUI",
+  mantle: "MNT",
+  hamster: "HMSTR",
+  usdCoin: "USDC",
+};
+
 export const intervalChenged = 3000;

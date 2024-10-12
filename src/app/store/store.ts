@@ -4,6 +4,7 @@ import messageReducer from "./slices/messageSlice";
 import user from "./slices/userSlice";
 import allUsers from "./slices/allUsersSlice";
 import courses from "./slices/coursesSlice";
+import lexiconCuts from "./slices/lexiconSlice";
 
 export const store = configureStore({
   reducer: {
@@ -12,6 +13,7 @@ export const store = configureStore({
     user: user,
     allUsers: allUsers,
     courses: courses,
+    lexiconCuts: lexiconCuts,
   },
 });
 
