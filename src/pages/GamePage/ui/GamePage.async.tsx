@@ -1,9 +1,9 @@
 import { lazy } from "react";
 
-export const BuyPageAsync = lazy(
+export const GamePageAsync = lazy(
   () =>
     new Promise((resolve) => {
       // @ts-expect-error setTimeout no used is real projects
-      setTimeout(() => resolve(import("./BuyPage")), 1500);
+      setTimeout(() => resolve(import("./GamePage")), 1500);
     })
 );

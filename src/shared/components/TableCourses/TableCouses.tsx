@@ -30,7 +30,7 @@ export const TableCourses = () => {
         <div className={style.wrapper}>
           <div className={style.container}>
             <button className={style.btn} onClick={hendlshowCourses}>
-              {!showAllCourses ? "Show all" : "Hide others"}
+              {!showAllCourses ? "Show more" : "Hide others"}
             </button>
             {currencys.map(([name, value]) => {
               return (

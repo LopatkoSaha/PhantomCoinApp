@@ -1,11 +1,11 @@
 .AppLink {
-  color: black;
+  width: 15vw;
+  color: var(--color-text-dark);
+  text-decoration: none;
 }
 
-.primary {
-  color: var(--primary-color);
-}
-
-.secondary {
-  color: var(--inverted-primary-color);
+@media (max-width: 413px) {
+  .AppLink {
+    width: 20vw;
+  }
 }

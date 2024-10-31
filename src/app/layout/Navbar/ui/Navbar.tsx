@@ -30,7 +30,10 @@ export const Navbar = () => {
       {Object.keys(currentUser).length > 0 && (
         <AppLink to={RoutePath.personal} className={style.iconUser}>
           <div className={style.personalBtn}>
-            <img src="/user.png" alt="user" />
+            <img
+              src="https://avatars.githubusercontent.com/u/113365148?v=4"
+              alt="user"
+            />
           </div>
         </AppLink>
       )}

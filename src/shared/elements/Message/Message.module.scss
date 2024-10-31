@@ -52,19 +52,19 @@
 
   .btn {
     position: absolute;
-    bottom: 5%;
+    bottom: 10%;
     padding: 0 30px;
     border-radius: 5%;
     cursor: pointer;
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 413px) {
   .Wrapper .Content {
     top: 15vh;
-    left: 50vw;
-    min-width: 40vw;
-    height: 12vh;
+    left: 20vw;
+    min-width: 70vw;
+    min-height: 10vh;
 
     &::before {
       display: block;

@@ -5,6 +5,7 @@ import user from "./slices/userSlice";
 import allUsers from "./slices/allUsersSlice";
 import courses from "./slices/coursesSlice";
 import lexiconCuts from "./slices/lexiconSlice";
+import toggleGames from "./slices/toggleGamesSlice";
 
 export const store = configureStore({
   reducer: {
@@ -14,6 +15,7 @@ export const store = configureStore({
     allUsers: allUsers,
     courses: courses,
     lexiconCuts: lexiconCuts,
+    toggleGames: toggleGames,
   },
 });
 
