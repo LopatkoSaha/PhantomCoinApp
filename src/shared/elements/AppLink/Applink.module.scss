@@ -1,0 +1,11 @@
+.AppLink {
+  width: 15vw;
+  color: var(--color-text-dark);
+  text-decoration: none;
+}
+
+@media (max-width: 413px) {
+  .AppLink {
+    width: 20vw;
+  }
+}

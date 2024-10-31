@@ -1,25 +1,24 @@
-@import  "./reset.scss";
-@import  "./variables/global.scss";
-@import  "./themes/normal.scss";
-@import  "./themes/dark.scss";
-
-// :root {
-//     --primary-color: #f00;
-// }
+@import "./reset.scss";
+@import "./variables/global.scss";
 
 .app {
-    font: var(--font-m);
-    background: var(--bg-color);
-    color: var(--primary-color);
+  font: var(--font-m);
+  color: var(--color-text-light);
+  width: 100vw;
+  min-height: 100vh;
+  background-color: var(--color-bg-dark3);
 
-    min-height: 100vh;
-}
+  .content-page {
+    background-color: var(--color-bg-dark3);
+    padding-top: var(--navbar-height);
+    width: 100%;
+    min-height: 100%;
+    margin: auto;
 
-.content-page {
-    display: flex;
-}
-
-.page-wrapper {
-    flex-grow: 1;
-    padding: 20px;
+    .page-wrapper {
+      width: 90%;
+      min-height: calc(100vh - var(--navbar-height));
+      background-color: var(--color-bg-dark3);
+    }
+  }
 }

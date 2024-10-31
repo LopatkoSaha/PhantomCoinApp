@@ -1,0 +1,43 @@
+.LogFormWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+  .LogFormHeader {
+    color: rgb(97, 97, 97);
+  }
+  .InputContainer {
+    margin: 1vh;
+  }
+  .ButtonContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 40%;
+  }
+}
+
+@media (max-width: 413px) {
+  .LogFormWrapper {
+    width: 80%;
+    height: 80%;
+    font-size: 1rem;
+    margin: auto;
+
+    .LogFormHeader {
+      line-height: 5vh;
+    }
+    .InputContainer {
+      margin: 3vh;
+    }
+    .ButtonContainer {
+      font-size: 1rem;
+      width: 45vw;
+      margin: auto;
+      & * {
+        font-size: 1rem;
+      }
+    }
+  }
+}

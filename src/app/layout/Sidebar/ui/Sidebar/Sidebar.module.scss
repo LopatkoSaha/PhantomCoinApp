@@ -1,0 +1,14 @@
+.Sidebar {
+  height: calc(100vh - var(--navbar-height));
+  width: var(--sidebar-width);
+  background: var(--color-bg-dark3);
+  position: relative;
+  transition: width 0.3s;
+  .items {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-between;
+    margin: 1vw;
+  }
+}

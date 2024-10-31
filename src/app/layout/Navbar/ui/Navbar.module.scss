@@ -1,0 +1,197 @@
+.Navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: var(--navbar-height);
+  background: var(--color-bg-dark3);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10%;
+  z-index: 100;
+
+  .logo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 30%;
+    height: 80%;
+
+    .img {
+      width: 30%;
+      height: 100%;
+
+      img {
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+      }
+    }
+
+    .logoText {
+      color: black;
+      font-weight: 700;
+      font-size: 2rem;
+      margin: auto 0.5rem;
+      color: var(--color-text-dark);
+    }
+  }
+
+  .NavPanel {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 5%;
+
+    .itemLinks {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      width: 40%;
+      font-size: 1rem;
+      color: var(--color-text-dark);
+      cursor: pointer;
+    }
+
+    .gameMenuWrapper {
+      position: absolute;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.5);
+      transform: translate(12%, 45%);
+      z-index: 10;
+      .gameMenu {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        width: 20vw;
+        border: 1px solid black;
+        background-color: var(--color-bg-dark3);
+        left: 50vw;
+        top: var(--navbar-height);
+      }
+      .nameGame:hover {
+        color: blue;
+      }
+    }
+
+    .NavBtns {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      column-gap: 5%;
+      z-index: 1;
+    }
+
+    .NavBtns * {
+    }
+  }
+
+  .WrapperBurger {
+    display: none;
+  }
+
+  .BtnBurger {
+    display: none;
+  }
+
+  .personalBtn {
+    height: 80%;
+    width: 100%;
+
+    img {
+      width: 30%;
+      height: 30%;
+      border-radius: 50%;
+    }
+  }
+}
+
+@media (max-width: 413px) {
+  .Navbar {
+    width: 95%;
+
+    .logo {
+      width: 50%;
+
+      .img {
+        display: none;
+      }
+    }
+
+    .NavPanel {
+      display: none;
+    }
+
+    .BtnBurger {
+      display: block;
+      width: 10vw;
+      height: 10vw;
+      background-image: url("../../../../../public/burger-dark.png");
+      background-repeat: no-repeat;
+      background-size: cover;
+      z-index: 10;
+    }
+    .WrapperBurger {
+      display: block;
+      position: fixed;
+      right: 0;
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.5);
+    }
+    .ContainerBurger {
+      position: fixed;
+      right: 0;
+      top: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+      width: 70vw;
+      min-height: 70vh;
+      background-color: #fff;
+      z-index: 10;
+
+      .itemLinks {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 100%;
+        padding-left: 20px;
+      }
+      .itemLinks * {
+        text-decoration: none;
+        margin-right: 10px;
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 5vh;
+      }
+      .BtnsBurger {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: space-between;
+        height: 10vh;
+        .personalBtn {
+          height: 80%;
+          width: 100%;
+
+          img {
+            width: 50%;
+            height: 50%;
+            border-radius: 50%;
+          }
+        }
+      }
+      .BtnsBurger * {
+        margin-right: 10px;
+        font-size: 1rem;
+      }
+    }
+  }
+}
