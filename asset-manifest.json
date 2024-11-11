@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/PhantomCoinApp/static/css/main.7eb36b61.css",
-    "main.js": "/PhantomCoinApp/static/js/main.c788326c.js",
+    "main.css": "/PhantomCoinApp/static/css/main.8e9f506a.css",
+    "main.js": "/PhantomCoinApp/static/js/main.170eda88.js",
     "static/css/999.69bec27e.chunk.css": "/PhantomCoinApp/static/css/999.69bec27e.chunk.css",
     "static/js/999.b4bfd732.chunk.js": "/PhantomCoinApp/static/js/999.b4bfd732.chunk.js",
     "static/css/327.73ced1fe.chunk.css": "/PhantomCoinApp/static/css/327.73ced1fe.chunk.css",
@@ -12,8 +12,8 @@
     "static/media/error-icon.png": "/PhantomCoinApp/static/media/error-icon.9cda71e4b7700baf233b.png",
     "static/media/warning-icon1.png": "/PhantomCoinApp/static/media/warning-icon1.51a411f76428fb395760.png",
     "index.html": "/PhantomCoinApp/index.html",
-    "main.7eb36b61.css.map": "/PhantomCoinApp/static/css/main.7eb36b61.css.map",
-    "main.c788326c.js.map": "/PhantomCoinApp/static/js/main.c788326c.js.map",
+    "main.8e9f506a.css.map": "/PhantomCoinApp/static/css/main.8e9f506a.css.map",
+    "main.170eda88.js.map": "/PhantomCoinApp/static/js/main.170eda88.js.map",
     "999.69bec27e.chunk.css.map": "/PhantomCoinApp/static/css/999.69bec27e.chunk.css.map",
     "999.b4bfd732.chunk.js.map": "/PhantomCoinApp/static/js/999.b4bfd732.chunk.js.map",
     "327.73ced1fe.chunk.css.map": "/PhantomCoinApp/static/css/327.73ced1fe.chunk.css.map",
@@ -23,7 +23,7 @@
     "380.9b97c239.chunk.js.map": "/PhantomCoinApp/static/js/380.9b97c239.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.7eb36b61.css",
-    "static/js/main.c788326c.js"
+    "static/css/main.8e9f506a.css",
+    "static/js/main.170eda88.js"
   ]
 }
