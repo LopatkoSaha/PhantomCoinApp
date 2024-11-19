@@ -1,0 +1,95 @@
+.wrapper {
+  width: 100vw;
+  height: calc(100vh - var(--navbar-height));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  width: 90%;
+  height: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.contentNavZone {
+  border: 1px solid green;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  width: 20%;
+  height: 100%;
+  row-gap: 5%;
+}
+
+.contentPlayZone {
+  border: 1px solid green;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  width: 80%;
+  height: 100%;
+}
+
+.title {
+  margin: 1% 0;
+}
+
+.containerColors {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 50%;
+  height: 10vh;
+  margin: 1% 0;
+}
+
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20%;
+  height: 100%;
+  border: 1px solid white;
+}
+
+.red {
+  background-color: red;
+}
+
+.orange {
+  background-color: orange;
+}
+
+.yellow {
+  background-color: yellow;
+}
+
+.green {
+  background-color: green;
+}
+
+.blue {
+  background-color: blue;
+}
+
+.violet {
+  background-color: violet;
+}
+
+.aqua {
+  background-color: aqua;
+}
+
+.grey {
+  background-color: grey;
+}
+
+.containerChecked {
+  width: 60%;
+  height: 15vh;
+}
