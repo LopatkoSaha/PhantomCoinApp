@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 
 import style from "./BullsAndCows.module.scss";
 import { Checked } from "shared/components/MiniGames/BullsAndCows/Checked";
+import { discripttionBullsCrows } from "shared/assets/texts/discriptionBullsCrows";
 
 const colorList: Record<string, string> = {
   0: "noColor",
@@ -16,8 +17,28 @@ const colorList: Record<string, string> = {
 };
 
 const configGame = {
-  quantityColors: 3,
-  quantitySteps: 4,
+  easy: {
+    quantityColors: 3,
+    quantitySteps: 5,
+  },
+  medium: {
+    quantityColors: 4,
+    quantitySteps: 7,
+  },
+  hard: {
+    quantityColors: 5,
+    quantitySteps: 10,
+  },
+};
+
+export type TStatusStep = {
+  status: string | null;
+  key: number;
+};
+
+type TComplexity = {
+  quantityColors: number;
+  quantitySteps: number;
 };
 
 function shuffleData(array: string[]) {
@@ -29,11 +50,19 @@ function shuffleData(array: string[]) {
 }
 
 export const BullsAndCows = () => {
-  const [randomColorList, setRandomColorList] = useState(
-    new Array(configGame.quantityColors).fill(1)
+  const [complexity, setComplexity] = useState<"easy" | "medium" | "hard">(
+    "easy"
   );
-  const [statusSteps, setStatusSteps] = useState<(string | null)[]>(
-    new Array(configGame.quantitySteps).fill(null)
+
+  const [randomColorList, setRandomColorList] = useState(
+    new Array(configGame[complexity].quantityColors).fill(1)
+  );
+
+  const [statusSteps, setStatusSteps] = useState<TStatusStep[]>(
+    new Array(configGame[complexity].quantitySteps).fill({
+      status: null,
+      key: Date.now(),
+    })
   );
 
   const [statusGame, setStatusGame] = useState<"win" | "loss" | "playing">(
@@ -41,83 +70,135 @@ export const BullsAndCows = () => {
   );
   const [isActiveField, setIsActiveField] = useState(0);
 
+  const [showModal, setShowModal] = useState<"show" | "">("");
+
+  useEffect(() => {
+    hendleRestart();
+  }, [complexity]);
+
   useEffect(() => {
     statusSteps.forEach((item) => {
-      if (item === null) return;
+      if (item.status === null) return;
       const winControl =
-        JSON.parse(item).bulls === configGame.quantityColors &&
-        JSON.parse(item).crows === configGame.quantityColors;
+        JSON.parse(item.status).bulls ===
+          configGame[complexity].quantityColors &&
+        JSON.parse(item.status).crows === configGame[complexity].quantityColors;
       if (winControl) {
         setStatusGame("win");
-        setIsActiveField(configGame.quantitySteps + 1);
+        setIsActiveField(configGame[complexity].quantitySteps + 1);
       }
-      if (isActiveField === configGame.quantitySteps && !winControl)
+      if (isActiveField === configGame[complexity].quantitySteps && !winControl)
         setStatusGame("loss");
     });
   }, [statusSteps]);
 
   useEffect(() => {
     const updatedData = shuffleData(Object.keys(colorList).slice(1));
-    setRandomColorList(updatedData.slice(0, configGame.quantityColors));
+    setRandomColorList(
+      updatedData.slice(0, configGame[complexity].quantityColors)
+    );
     setStatusGame("playing");
   }, []);
 
-  // const hendleRestart = () => {
-  //   setStatusGame("playing");
-  //   setIsActiveField(0);
-  //   const updatedData = shuffleData(Object.keys(colorList).slice(1));
-  //   setRandomColorList(updatedData.slice(0, configGame.quantityColors));
-  //   setStatusSteps(new Array(configGame.quantitySteps).fill(null));
-  // };
+  const hendleRestart = () => {
+    setStatusGame("playing");
+    setIsActiveField(0);
+    const updatedData = shuffleData(Object.keys(colorList).slice(1));
+    setRandomColorList(
+      updatedData.slice(0, configGame[complexity].quantityColors)
+    );
+    setStatusSteps(
+      new Array(configGame[complexity].quantitySteps).fill({
+        status: null,
+        key: Date.now(),
+      })
+    );
+  };
+
+  const handleComplexity = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setComplexity(event.target.value as "easy" | "medium" | "hard");
+  };
 
   return (
-    <div className={style.wrapper}>
-      <div className={style.content}>
-        <div className={style.contentNavZone}>
-          <div className={style.rules}>Rules</div>
-          <div className={style.complexity}>Complexity</div>
-          <div className={style.time}>Time</div>
-          {/* <button className={style.restartBtn} onClick={hendleRestart}> */}
-          {/* Restart
-          </button> */}
-        </div>
-        <div className={style.contentPlayZone}>
-          <div className={style.title}>
-            {statusGame === "playing" && "Угадай последовательность цветов"}
-            {statusGame === "win" && "Молодец, ты угадал"}
-            {statusGame === "loss" && "Не угадал, попробуй еще"}
+    <>
+      <div className={style.wrapper}>
+        <div className={style.content}>
+          <div className={style.contentNavZone}>
+            <button
+              className={style.rules}
+              onClick={() => setShowModal("show")}
+            >
+              Правила игры
+            </button>
+            <div className={style.complexity}>
+              <label htmlFor="dropdown">Сложность: </label>
+              <select
+                id="dropdown"
+                value={complexity}
+                onChange={handleComplexity}
+              >
+                <option value="easy">Легко</option>
+                <option value="medium">Средне</option>
+                <option value="hard">Сложно</option>
+              </select>
+            </div>
+            <button className={style.restartBtn} onClick={hendleRestart}>
+              Restart
+            </button>
           </div>
-          <div className={style.containerColors}>
-            {randomColorList &&
-              randomColorList.map((item, ind) => {
+          <div className={style.contentPlayZone}>
+            <div className={style.title}>
+              {statusGame === "playing" &&
+                `Угадай последовательность из ${configGame[complexity].quantityColors} цветов за ${configGame[complexity].quantitySteps} попыток`}
+              {statusGame === "win" && "Молодец, ты угадал"}
+              {statusGame === "loss" && "Не угадал, попробуй еще"}
+            </div>
+            <div className={style.containerColors}>
+              {randomColorList &&
+                statusGame !== "playing" &&
+                randomColorList.map((item, ind) => {
+                  return (
+                    <div
+                      className={`${style.card} ${style[colorList[item]]}`}
+                      key={ind}
+                    >
+                      {colorList[item]}
+                    </div>
+                  );
+                })}
+            </div>
+            <div className={style.containerChecked}>
+              {statusSteps.map((item, ind) => {
                 return (
-                  <div
-                    className={`${style.card} ${style[colorList[item]]}`}
-                    key={ind}
-                  >
-                    {colorList[item]}
-                  </div>
+                  <Checked
+                    key={item.key + ind}
+                    colorsList={colorList}
+                    quantityColors={configGame[complexity].quantityColors}
+                    exercise={randomColorList.map((item) => +item)}
+                    setStatusSteps={setStatusSteps}
+                    isActiveField={isActiveField}
+                    setIsActiveField={setIsActiveField}
+                    indGameField={ind}
+                  />
                 );
               })}
-          </div>
-          <div className={style.containerChecked}>
-            {statusSteps.map((item, ind) => {
-              return (
-                <Checked
-                  key={ind}
-                  colorsList={colorList}
-                  quantityColors={configGame.quantityColors}
-                  exercise={randomColorList.map((item) => +item)}
-                  setStatusSteps={setStatusSteps}
-                  isActiveField={isActiveField}
-                  setIsActiveField={setIsActiveField}
-                  indGameField={ind}
-                />
-              );
-            })}
+            </div>
           </div>
         </div>
       </div>
-    </div>
+      <div className={`${style.wrapperModal} ${style[showModal]}`}>
+        <div className={style.contentModal}>
+          <div className={style.titleModal}>Быки и коровы</div>
+          <div className={style.textModal}>{discripttionBullsCrows}</div>
+          <button
+            onClick={() => {
+              setShowModal("");
+            }}
+          >
+            Ok
+          </button>
+        </div>
+      </div>
+    </>
   );
 };

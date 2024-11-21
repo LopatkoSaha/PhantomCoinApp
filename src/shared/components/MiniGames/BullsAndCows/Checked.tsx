@@ -1,12 +1,13 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 import style from "./Checked.module.scss";
+import { TStatusStep } from "./BullsAndCows";
 
 interface checkedProps {
   colorsList: Record<string, string>;
   quantityColors: number;
   exercise: number[];
-  setStatusSteps: React.Dispatch<React.SetStateAction<(string | null)[]>>;
+  setStatusSteps: React.Dispatch<React.SetStateAction<TStatusStep[]>>;
   isActiveField: number;
   setIsActiveField: React.Dispatch<React.SetStateAction<number>>;
   indGameField: number;
@@ -36,6 +37,25 @@ export const Checked = ({
 
   const [compliance, setCompliance] = useState({ bulls: 0, crows: 0 });
 
+  const [dropdownDirection, setDropdownDirection] = useState<"down" | "up">(
+    "down"
+  );
+
+  useEffect(() => {
+    if (menuPosition && dropdownRef.current) {
+      const dropdownRect = dropdownRef.current.getBoundingClientRect();
+      const viewportHeight = window.innerHeight;
+
+      if (dropdownRect.bottom > viewportHeight) {
+        setDropdownDirection("up");
+      } else {
+        setDropdownDirection("down");
+      }
+    }
+  }, [menuPosition]);
+
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
   const handleRightClick = (
     e: React.MouseEvent<HTMLDivElement, MouseEvent>
   ) => {
@@ -56,23 +76,23 @@ export const Checked = ({
     setMenuPosition(null);
   };
 
-  const validateCompare = stateResult.includes(0);
+  const validateCompare = !stateResult.includes(0);
 
   const handleCompare = () => {
     setIsActiveField((prev) => prev + 1);
-    const result = { bulls: 0, crows: 0 };
+    const result = { crows: 0, bulls: 0 };
     stateResult.forEach((item, ind) => {
       if (exercise.includes(item)) {
-        result.bulls++;
+        result.crows++;
       }
       if (item === exercise[ind]) {
-        result.crows++;
+        result.bulls++;
       }
     });
     setCompliance((prev) => result);
     setStatusSteps((prev) => {
       const updateStatus = [...prev];
-      updateStatus.splice(indGameField, 1, JSON.stringify(result));
+      updateStatus[indGameField].status = JSON.stringify(result);
       return updateStatus;
     });
   };
@@ -103,12 +123,8 @@ export const Checked = ({
             );
           })}
           <div className={style.infoStep}>
-            {!validateCompare && indGameField >= isActiveField ? (
-              <button
-                className={style.btnTry}
-                onClick={handleCompare}
-                disabled={validateCompare}
-              >
+            {validateCompare && indGameField === isActiveField ? (
+              <button className={style.btnTry} onClick={handleCompare}>
                 Ok
               </button>
             ) : (
@@ -116,32 +132,40 @@ export const Checked = ({
             )}
             {indGameField < isActiveField && (
               <div>
-                Быков: {compliance.bulls}, Коров: {compliance.crows}
+                Коров: {compliance.crows}, Быков: {compliance.bulls}
               </div>
             )}
           </div>
         </div>
       </div>
       {menuPosition && (
-        <ul
+        <div
+          className={style.menuColors}
+          ref={dropdownRef}
           style={{
-            top: menuPosition.y,
+            top: dropdownDirection === "down" ? menuPosition.y : "auto",
+            bottom:
+              dropdownDirection === "up"
+                ? `calc(100vh - ${menuPosition.y}px)`
+                : "auto",
             left: menuPosition.x,
           }}
         >
-          {Object.keys(colorsList).map((item, ind) => {
-            if (+item !== 0 && stateResult.includes(+item)) return;
-            return (
-              <li
-                className={`${style[colorsList[item]]}`}
-                onClick={() => handleMenu(currentIndex, +item)}
-                key={ind}
-              >
-                {colorsList[item]}
-              </li>
-            );
-          })}
-        </ul>
+          <ul>
+            {Object.keys(colorsList).map((item, ind) => {
+              if (+item !== 0 && stateResult.includes(+item)) return;
+              return (
+                <li
+                  className={`${style[colorsList[item]]}`}
+                  onClick={() => handleMenu(currentIndex, +item)}
+                  key={ind}
+                >
+                  {colorsList[item]}
+                </li>
+              );
+            })}
+          </ul>
+        </div>
       )}
     </div>
   );
