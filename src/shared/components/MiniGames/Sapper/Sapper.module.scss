@@ -1,0 +1,127 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: calc(100vh - var(--navbar-height));
+}
+
+.content {
+  width: 90%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav {
+  border: 1px solid white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 20%;
+  height: 100%;
+}
+
+.gameContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  border: 1px solid white;
+  width: 80%;
+  height: 100%;
+}
+
+.gameinfo {
+  text-align: center;
+}
+.gameField {
+  border: 1px solid rgb(14, 13, 13);
+  width: 80%;
+  height: 95%;
+}
+
+.cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 18px;
+  padding: 10px;
+  border: 1px solid white;
+  cursor: pointer;
+  background-color: #aaa;
+}
+
+.boom {
+  background-color: red;
+}
+
+.close {
+  background-color: blue;
+}
+
+.one {
+  color: blue;
+  &::before {
+    content: "1";
+  }
+}
+
+.two {
+  color: green;
+  &::before {
+    content: "2";
+  }
+}
+
+.three {
+  color: rgb(255, 175, 2);
+  &::before {
+    content: "3";
+  }
+}
+
+.four {
+  color: rgb(255, 81, 0);
+  &::before {
+    content: "3";
+  }
+}
+
+.five {
+  color: rgb(212, 0, 255);
+  &::before {
+    content: "3";
+  }
+}
+
+.six {
+  color: rgb(255, 0, 106);
+  &::before {
+    content: "3";
+  }
+}
+
+.seven {
+  color: rgb(160, 36, 6);
+  &::before {
+    content: "3";
+  }
+}
+
+.eight {
+  color: rgb(104, 14, 14);
+  &::before {
+    content: "3";
+  }
+}
+
+.boom {
+  color: yellow;
+  &::before {
+    content: "3";
+  }
+}
