@@ -23,6 +23,8 @@
   width: 20%;
   height: 100%;
 }
+.complexity {
+}
 
 .gameContainer {
   display: flex;
@@ -48,15 +50,11 @@
   align-items: center;
   justify-content: center;
   color: white;
-  font-size: 18px;
+  font-size: 2rem;
   padding: 10px;
   border: 1px solid white;
   cursor: pointer;
   background-color: #aaa;
-}
-
-.boom {
-  background-color: red;
 }
 
 .close {
@@ -87,41 +85,64 @@
 .four {
   color: rgb(255, 81, 0);
   &::before {
-    content: "3";
+    content: "4";
   }
 }
 
 .five {
   color: rgb(212, 0, 255);
   &::before {
-    content: "3";
+    content: "5";
   }
 }
 
 .six {
   color: rgb(255, 0, 106);
   &::before {
-    content: "3";
+    content: "6";
   }
 }
 
 .seven {
   color: rgb(160, 36, 6);
   &::before {
-    content: "3";
+    content: "7";
   }
 }
 
 .eight {
   color: rgb(104, 14, 14);
   &::before {
-    content: "3";
+    content: "8";
   }
 }
 
-.boom {
-  color: yellow;
+.bomb {
+  background-color: red;
+  color: white;
   &::before {
-    content: "3";
+    content: "";
+    display: inline-block; /* Позволяет отображать элемент */
+    width: 90%;
+    height: 90%;
+    background-image: url("../../../../shared/assets/icon/bomb.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}
+
+.flag {
+  background-color: rgb(206, 231, 96);
+  color: white;
+  &::before {
+    content: "";
+    display: inline-block;
+    width: 90%;
+    height: 90%;
+    background-image: url("../../../../shared/assets/icon/flagRed.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
   }
 }

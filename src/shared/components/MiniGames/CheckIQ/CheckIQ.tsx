@@ -255,7 +255,9 @@ export const CheckIQ: React.FC = () => {
     getLocalStorage({ name: "statistic", value: { win: 0, loss: 0 } });
   }, []);
 
-  const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+  const handlChangeComplexity = (
+    event: React.ChangeEvent<HTMLSelectElement>
+  ) => {
     setComplexity(event.target.value as "easy" | "medium" | "hard");
   };
 
@@ -293,7 +295,7 @@ export const CheckIQ: React.FC = () => {
             <select
               id="dropdown"
               value={complexity}
-              onChange={handleSelectChange}
+              onChange={handlChangeComplexity}
               disabled={statusGame !== "prepar"}
             >
               <option value="easy">Легко</option>
