@@ -1,0 +1,56 @@
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    color: black;
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: center;
+        width: 90%;
+        height: 90%;
+        .buyCurrencyHeader {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 1rem 0;
+        }
+        .buyCurrencyContent {
+            .saleContent {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin: 0.5rem 0;
+                width: 100%;
+            }
+            .buyContent {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width: 100%;
+                margin: 0.5rem 0;
+            }
+            .quantityContent {
+                margin: 0.5rem 0;
+            }
+        }
+        .ButtonContainer {
+            width: 30%;
+            .ButtonBuyChoice{
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin: 0.5rem 0;
+            }
+            .ButtonBuyAllIn{
+                margin: 0.5rem 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+    }
+}

@@ -30,3 +30,4 @@ export const lexiconCuts = {
 };
 
 export const intervalChenged = 3000;
+export const coursesUpdateInterval = 10000;

@@ -2,20 +2,20 @@ import { configureStore } from "@reduxjs/toolkit";
 import modalReducer from "./slices/modalSlice";
 import messageReducer from "./slices/messageSlice";
 import user from "./slices/userSlice";
-import allUsers from "./slices/allUsersSlice";
 import courses from "./slices/coursesSlice";
-import lexiconCuts from "./slices/lexiconSlice";
+import coinIcons from "./slices/coinIconsSlice";
 import toggleGames from "./slices/toggleGamesSlice";
+import wallet from "./slices/walletSlice";
 
 export const store = configureStore({
   reducer: {
     modal: modalReducer,
     message: messageReducer,
     user: user,
-    allUsers: allUsers,
     courses: courses,
-    lexiconCuts: lexiconCuts,
+    coinIcons: coinIcons,
     toggleGames: toggleGames,
+    wallet: wallet,
   },
 });
 

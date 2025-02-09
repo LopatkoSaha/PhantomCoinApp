@@ -5,19 +5,29 @@
   align-items: center;
 
   .LogFormHeader {
-    color: rgb(92, 92, 92);
+    color: black;
   }
 
   .InputContainer {
-    margin: 1vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    input {
+      margin: 1vh;
+    }
   }
 
   .ButtonContainer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 50%;
+    width: 100%;
   }
+}
+
+.Error {
+  color: red;
 }
 
 @media (max-width: 413px) {

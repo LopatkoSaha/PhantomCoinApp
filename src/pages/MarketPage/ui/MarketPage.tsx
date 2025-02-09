@@ -7,17 +7,15 @@ import { useAppSelector } from "app/store/useAppSelector";
 
 const MarketPage = () => {
   const currentCourses = useAppSelector((state) => state.courses);
-  const nameCuts: Record<string, string> = useAppSelector(
-    (state) => state.lexiconCuts
-  );
 
-  const data = Object.entries(currentCourses).reduce(
-    (acc: { name: string; value: number }[], [name, value]) => {
-      acc.push({ name: nameCuts[name], value: value as number });
-      return acc;
-    },
-    []
-  );
+  const data = Object.entries(currentCourses)
+  .filter(([key]) => key !== "id" && key !== "created_at")
+  .map(([key, value]) => {
+    return {
+      name: key,
+      value: Number(value)
+    }
+  })
 
   const [toggleShowing, setToggleShowing] = useState(true);
   const hendlToggleShowing = () => setToggleShowing((pre) => !pre);

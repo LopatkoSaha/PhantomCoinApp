@@ -1,86 +1,78 @@
-import { useState, useEffect } from "react";
+import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 
 import style from "./RegForm.module.scss";
-import { Input } from "shared/elements/Input/Input";
 import { Button, ButtonSize, ButtonTheme } from "shared/elements/Button/Button";
-import { toLength } from "shared/hendlers/validators/toLength";
 import { AppDispatch } from "app/store/store";
-import { setUser } from "api/apiFetch/fetchUsers";
+import { axiosRegistration } from "api/axios/userAuth";
 
 type LogFormProps = {
   onClose: () => void;
 };
 
-export const RegForm: React.FC<LogFormProps> = ({ onClose }) => {
-  const [formValues, setFormValues] = useState({
-    name: null,
-    email: null,
-    password: null,
-  });
+type FormData = {
+  name: string;
+  email: string;
+  password: string;
+};
 
+export const RegForm: React.FC<LogFormProps> = ({ onClose }) => {
   const dispatch: AppDispatch = useDispatch();
 
-  const handleChange = (name: string, value: any) => {
-    setFormValues((prevValues) => ({
-      ...prevValues,
-      [name]: value,
-    }));
-  };
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isValid },
+  } = useForm<FormData>({ mode: "onBlur" });
 
-  const isValidForn = !Object.values(formValues).some((item) => item === null);
-
-  const submitHandler = () => {
+  const onSubmit = (data: FormData) => {
+    axiosRegistration(data, dispatch);
     onClose();
-    setUser(dispatch, {
-      name: formValues.name!,
-      email: formValues.email!,
-      password: formValues.password!,
-    });
   };
 
   return (
     <div className={style.LogFormWrapper}>
       <div className={style.LogFormHeader}>Регистрация</div>
-      <div className={style.InputContainer}>
-        <Input
-          name="name"
-          placeholder="Enter name"
-          setValitedValue={handleChange}
+      <form onSubmit={handleSubmit(onSubmit)} className={style.InputContainer}>
+        <input
+          placeholder="Введите имя"
+          {...register("name", { required: "Имя обязательно" })}
         />
-        <Input
-          name="email"
-          placeholder="Enter email"
-          validator={toLength}
-          setValitedValue={handleChange}
-        />
-        <Input
-          type="password"
-          name="password"
-          placeholder="Enter password"
-          validator={toLength}
-          setValitedValue={handleChange}
-        />
-      </div>
-      <div className={style.ButtonContainer}>
-        <Button
-          cb={submitHandler}
-          isActive={isValidForn}
-          size={ButtonSize.M}
-          theme={ButtonTheme.LIGTH}
-          title="Регистрация"
-          // animation="animate__animated animate__bounce"
-        />
+        {errors.name && <p className={style.Error}>{errors.name.message}</p>}
 
-        <Button
-          cb={onClose}
-          isActive={true}
-          size={ButtonSize.M}
-          theme={ButtonTheme.LIGTH}
-          title="Отмена"
-          // animation="animate__animated animate__backInRight"
+        <input
+          placeholder="Введите email"
+          {...register("email", {
+            required: "Email обязателен",
+            pattern: { value: /^\S+@\S+$/i, message: "Некорректный email" },
+          })}
         />
-      </div>
+        {errors.email && <p className={style.Error}>{errors.email.message}</p>}
+
+        <input
+          type="password"
+          placeholder="Введите пароль"
+          {...register("password", { required: "Пароль обязателен", minLength: 4 })}
+        />
+        {errors.password && <p className={style.Error}>{errors.password.message}</p>}
+
+        <div className={style.ButtonContainer}>
+          <Button
+            type="submit"
+            isActive={isValid}
+            size={ButtonSize.M}
+            theme={ButtonTheme.LIGTH}
+            title="Регистрация"
+          />
+          <Button
+            cb={onClose}
+            isActive={true}
+            size={ButtonSize.M}
+            theme={ButtonTheme.LIGTH}
+            title="Отмена"
+          />
+        </div>
+      </form>
     </div>
   );
 };

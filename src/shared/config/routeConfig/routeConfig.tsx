@@ -13,7 +13,7 @@ export enum AppRoutes {
   GAME = "game",
   MARKET = "market",
   PERSONAL = "personal",
-  NOT_FOUND = "notFound",
+  // NOT_FOUND = "notFound",
 }
 
 export const RoutePath: Record<AppRoutes, string> = {
@@ -22,7 +22,7 @@ export const RoutePath: Record<AppRoutes, string> = {
   [AppRoutes.GAME]: "/game",
   [AppRoutes.MARKET]: "/market",
   [AppRoutes.PERSONAL]: "/personal",
-  [AppRoutes.NOT_FOUND]: "*",
+  // [AppRoutes.NOT_FOUND]: "*",
 };
 
 export const routeConfig: Record<AppRoutes, RouteProps> = {
@@ -50,8 +50,8 @@ export const routeConfig: Record<AppRoutes, RouteProps> = {
     path: RoutePath.personal,
     element: <PersonalPage />,
   },
-  [AppRoutes.NOT_FOUND]: {
-    path: RoutePath.notFound,
-    element: <NotFoundPage />,
-  },
+  // [AppRoutes.NOT_FOUND]: {
+  //   path: RoutePath.notFound,
+  //   element: <NotFoundPage />,
+  // },
 };

@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 
 import { routeConfig } from "shared/config/routeConfig/routeConfig";
 import { PageLoader } from "shared/elements/PageLoader/PageLoader";
@@ -19,6 +19,7 @@ const AppRouter = () => {
             }
           />
         ))}
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </Suspense>
   );

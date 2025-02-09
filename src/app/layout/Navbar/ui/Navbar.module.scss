@@ -99,12 +99,14 @@
   }
 
   .personalBtn {
-    height: 80%;
-    width: 100%;
-
-    img {
-      width: 30%;
-      height: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40%;
+    width: 40%;
+    .personalImg {
+      height: 50%;
+      width: 50%;
       border-radius: 50%;
     }
   }

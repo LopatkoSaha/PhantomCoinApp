@@ -4,8 +4,9 @@ import style from "./Navbar.module.scss";
 import { Button, ButtonSize, ButtonTheme } from "shared/elements/Button/Button";
 import { AppDispatch } from "app/store/store";
 import { showModal } from "app/store/slices/modalSlice";
-import { user } from "app/store/slices/userSlice";
+import { setUser } from "app/store/slices/userSlice";
 import { useAppSelector } from "app/store/useAppSelector";
+import { axiosLogout } from "api/axios/userAuth";
 
 type logProps = {
   handler: () => void;
@@ -13,19 +14,25 @@ type logProps = {
 
 export const NavbarBtnLog = ({ handler }: logProps) => {
   const dispatch: AppDispatch = useDispatch();
-  const currentUser = useAppSelector((state) => state.user);
+  const user = useAppSelector((state) => state.user);
 
   const handleShowModal = () => {
-    Object.keys(currentUser);
     dispatch(showModal({ modalType: "log" }));
     handler();
   };
 
-  const isUserLoggedIn = Object.keys(currentUser).length > 0;
+  const handlerLoginout = () => {
+    dispatch(setUser({
+      id: "",
+      name: "",
+      walletId: "",
+    }));
+    axiosLogout(dispatch);
+  }
 
   return (
     <>
-      {!isUserLoggedIn && (
+      {!user.name && (
         <div className={style.navBtns}>
           <Button
             cb={handleShowModal}
@@ -37,10 +44,10 @@ export const NavbarBtnLog = ({ handler }: logProps) => {
           />
         </div>
       )}
-      {isUserLoggedIn && (
+      {user.name && (
         <div className={style.navBtns}>
           <Button
-            cb={() => dispatch(user({}))}
+            cb={handlerLoginout}
             isActive={true}
             size={ButtonSize.M}
             theme={ButtonTheme.LIGTH}

@@ -1,37 +1,37 @@
-import { useState } from "react";
+import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 
 import style from "./LogForm.module.scss";
-import { Input } from "shared/elements/Input/Input";
 import { Button, ButtonSize, ButtonTheme } from "shared/elements/Button/Button";
-import { toLength } from "shared/hendlers/validators/toLength";
 import { AppDispatch } from "app/store/store";
-import { whoAmI } from "api/apiFetch/fetchUsers";
 import { showModal } from "app/store/slices/modalSlice";
+import { axiosLogin } from "api/axios/userAuth";
+import { userGet } from "api/axios/userGet";
+import { walletGet } from "api/axios/walletGet";
 
 type LogFormProps = {
   onClose: () => void;
 };
 
+type FormValues = {
+  login: string;
+  password: string;
+};
+
 export const LogForm: React.FC<LogFormProps> = ({ onClose }) => {
-  const [formValues, setFormValues] = useState({ login: null, password: null });
-
   const dispatch: AppDispatch = useDispatch();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isValid },
+  } = useForm<FormValues>({
+    mode: "onBlur",
+  });
 
-  const handleChange = (name: string, value: any) => {
-    setFormValues((prevValues) => ({
-      ...prevValues,
-      [name]: value,
-    }));
-  };
-
-  const isValidForn = !Object.values(formValues).some((item) => item === null);
-
-  const submitHandler = () => {
-    whoAmI(dispatch, {
-      email: formValues.login!,
-      password: formValues.password!,
-    });
+  const onSubmit = async (data: FormValues) => {
+    await axiosLogin({ email: data.login, password: data.password }, dispatch);
+    userGet(dispatch);
+    walletGet(dispatch);
     onClose();
     dispatch(showModal({ modalType: "" }));
   };
@@ -39,40 +39,39 @@ export const LogForm: React.FC<LogFormProps> = ({ onClose }) => {
   return (
     <div className={style.LogFormWrapper}>
       <div className={style.LogFormHeader}>Авторизация</div>
-      <div className={style.InputContainer}>
-        <Input
-          name="login"
-          placeholder="Enter login"
-          validator={toLength}
-          setValitedValue={handleChange}
+      <form onSubmit={handleSubmit(onSubmit)} className={style.InputContainer}>
+        <input
+          placeholder="Введите email"
+          {...register("login", { required: "Логин обязателен" })}
         />
-        <Input
-          type="password"
-          name="password"
-          placeholder="Enter password"
-          validator={toLength}
-          setValitedValue={handleChange}
-        />
-      </div>
-      <div className={style.ButtonContainer}>
-        <Button
-          cb={submitHandler}
-          isActive={isValidForn}
-          size={ButtonSize.M}
-          theme={ButtonTheme.LIGTH}
-          title="Войти"
-          // animation="animate__animated animate__bounce"
-        />
+        {errors.login && <span className={style.Error}>{errors.login.message}</span>}
 
-        <Button
-          cb={onClose}
-          isActive={true}
-          size={ButtonSize.M}
-          theme={ButtonTheme.LIGTH}
-          title="Отмена"
-          // animation="animate__animated animate__backInRight"
+        <input
+          type="password"
+          placeholder="Введите пароль"
+          {...register("password", { required: "Пароль обязателен" })}
         />
-      </div>
+        {errors.password && <span className={style.Error}>{errors.password.message}</span>}
+
+        <div className={style.ButtonContainer}>
+          <Button
+            type="submit"
+            isActive={isValid}
+            size={ButtonSize.M}
+            theme={ButtonTheme.LIGTH}
+            title="Войти"
+          />
+
+          <Button
+            type="button"
+            cb={onClose}
+            isActive={true}
+            size={ButtonSize.M}
+            theme={ButtonTheme.LIGTH}
+            title="Отмена"
+          />
+        </div>
+      </form>
     </div>
   );
 };

@@ -14,7 +14,7 @@ export enum ButtonSize {
 }
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  cb: () => void;
+  cb?: () => void;
   isActive?: boolean;
   size?: ButtonSize;
   theme?: ButtonTheme;
@@ -35,7 +35,7 @@ export const Button: FC<ButtonProps> = (props) => {
 
   const handleTouchEnd = (e: React.TouchEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    cb();
+    if(typeof cb === "function") cb();
   };
 
   return (
