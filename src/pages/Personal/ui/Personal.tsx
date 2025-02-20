@@ -1,12 +1,14 @@
 import { useDispatch } from "react-redux";
 
 import style from "./Personal.module.scss";
+import { RootState } from "app/store/store";
 import { useAppSelector } from "app/store/useAppSelector";
 import { AppDispatch } from "app/store/store";
 import { showModal } from "app/store/slices/modalSlice";
 import { Wallet } from "shared/components/Wallet/Wallet";
 import { BuyCurrency } from "shared/components/BuyCurrency/BuyCurrency";
-import { RootState } from "app/store/store";
+import { Preorder } from "shared/components/Preorder/Preorder";
+import { PreorderStore } from "shared/components/PreorderStore/PreorderStore";
 
 interface User {
   id: number;
@@ -36,13 +38,10 @@ export const PersonalPage = () => {
           </div>
           <div className={style.containerFeedback}>
             <div className={style.preorder}>
-              preorder
+              <Preorder />
             </div>
             <div className={style.preorderStore}>
-              preorderStore
-            </div>
-            <div className={style.telegram}>
-              telegram
+              <PreorderStore />
             </div>
           </div>
         </div>

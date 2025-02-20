@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 
-import style from ".//BuyCurrency.module.scss";
+import style from "./BuyCurrency.module.scss";
 import { useAppSelector } from "app/store/useAppSelector";
 import { AppDispatch } from "app/store/store";
 import { Button, ButtonSize, ButtonTheme } from "shared/elements/Button/Button";
