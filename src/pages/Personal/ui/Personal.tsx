@@ -1,51 +1,37 @@
-import { useDispatch } from "react-redux";
+import React, { useState } from "react";
 
 import style from "./Personal.module.scss";
 import { RootState } from "app/store/store";
 import { useAppSelector } from "app/store/useAppSelector";
-import { AppDispatch } from "app/store/store";
-import { showModal } from "app/store/slices/modalSlice";
-import { Wallet } from "shared/components/Wallet/Wallet";
-import { BuyCurrency } from "shared/components/BuyCurrency/BuyCurrency";
-import { Preorder } from "shared/components/Preorder/Preorder";
-import { PreorderStore } from "shared/components/PreorderStore/PreorderStore";
+import { PersonalPageProps, TPersonalTabs, dictionary } from "shared/config/config";
 
-interface User {
-  id: number;
-  name: string;
-  email?: string;
-  walletId: number;
-}
+export const PersonalPage: React.FC<PersonalPageProps> = ({tabProps}) => {
 
-export const PersonalPage = () => {
-  const dispatch: AppDispatch = useDispatch();
   const user = useAppSelector((state: RootState) => state.user);
-
   const isUser = Boolean(user?.name);
 
+  const [activeTab, setActiveTab] = useState<TPersonalTabs>(Object.keys(tabProps)[0] as TPersonalTabs);
+
+  if (!tabProps || Object.keys(tabProps).length === 0) {
+    return <div>Загрузка...</div>; 
+  }
+
   return <>
-    {isUser &&
-      <div className={style.wrapperPersonal}>
-        <div className={style.headerPersonal}>Личный кабинет пользователя {user.name}</div>
-        <div className={style.containerPersonal}>
-          <div className={style.containerWallet}>
-            <div className={style.wallet}>
-              <Wallet />
+          {isUser &&
+            <div className={style.wrapperPersonal}>
+              <div className={style.headerPersonal}>{dictionary[activeTab]}</div>
+              <div className={style.tabmenu}>
+                {Object.keys(tabProps).map((name) => {
+                  const tabName = name as TPersonalTabs;
+                  return (
+                    <button  className={tabName === activeTab ? style.btnActive : ""} key={tabName} onClick={() => setActiveTab(tabName)}>{dictionary[tabName]}</button>
+                  )
+                })}
+              </div>
+              <div className={style.containerPersonal}>
+                {React.createElement(tabProps[activeTab])} 
+              </div>
             </div>
-            <div className={style.buy}>
-              <BuyCurrency />
-            </div>
-          </div>
-          <div className={style.containerFeedback}>
-            <div className={style.preorder}>
-              <Preorder />
-            </div>
-            <div className={style.preorderStore}>
-              <PreorderStore />
-            </div>
-          </div>
-        </div>
-      </div>
-    }
-  </>;
+          }
+        </>;
 };

@@ -3,16 +3,16 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
+    width: 70%;
     height: 100%;
     padding: 1rem 0;
+    margin: auto;
     .header {
         font-size: 1.2rem;
         font-weight: 700;
     }
-    .showPreorders {
-        display: flex;
-        justify-self: start;
+    .optsions {
+        align-self: self-start;
     }
     .content {
         display: flex;

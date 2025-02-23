@@ -38,12 +38,17 @@
         }
         .ButtonContainer {
             width: 30%;
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            align-items: center;
             .ButtonBuyChoice{
-                width: 100%;
+                width: 60%;
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
                 margin: 0.5rem 0;
+
             }
             .ButtonBuyAllIn{
                 margin: 0.5rem 0;

@@ -7,39 +7,57 @@ import { useAppSelector } from "app/store/useAppSelector";
 import { preorderDelete } from "api/axios/preorderDelete";
 import { preordersGet } from "api/axios/preordersGet";
 
+interface CoinIconsState {
+    [key: string]: string;
+  }
+const optionShow = ["Активные", "Не активные", "Все"];
+
 export const PreorderStore = () => {
     const dispatch: AppDispatch = useDispatch();
+    const icons: CoinIconsState = useAppSelector((state) => state.coinIcons);
     const preorders = useAppSelector((state) => state.preorders);
-    const [showActivePreorders, setShowActivePreorder] = useState(true);
+    const [condinionShow, setConditionShow] = useState(optionShow[0]);
 
-    const handlerChangeShowPreorders = () => setShowActivePreorder((prev) => !prev);
+    const handleShowPreorders = (event: React.ChangeEvent<HTMLSelectElement>) => {
+        setConditionShow(event.target.value)
+    };
+
     const handlerDeletePreorder = async (id: number) => {
         await preorderDelete(dispatch, id);
         preordersGet(dispatch);
     };
 
-    const isFilteredPreordrs = preorders.filter((item) => 
-        showActivePreorders ? item.is_active === 1 : item.is_active === 2
-    )
+    const isFilteredPreordrs = preorders.filter((item) => {
+        if(condinionShow === "Активные") return item.is_active === 1;
+        if(condinionShow === "Не активные") return item.is_active === 0;
+        if(condinionShow === "Все") return item;
+    })
 
     return (
         <div className={style.wrapper}>
             <div className={style.header}>
-                {showActivePreorders ? "Активные предзаказы" : "Неактивные предзаказы"}
+                {`${condinionShow} предзаказы`}
             </div>
-            <button 
-                className={style.showPreorders}
-                onClick={handlerChangeShowPreorders} 
-            >
-                {!showActivePreorders ? "Показать активные" : "Показать неактивные"}
-            </button>
+            <div className={style.optsions}>
+                    <label htmlFor="dropdown">Показать: </label>
+                    <select id="dropdown" value={condinionShow} onChange={handleShowPreorders}>
+                        {optionShow.map((name) => {
+                            return <option value={name}>{name}</option>
+                        })}
+                    </select>
+                </div>
             <div className={style.content}>
                 {isFilteredPreordrs.length === 0 
                 ? "Данные отсутствуют" 
                 : isFilteredPreordrs.map((item) => {
                     return (
                             <div className={style.card}>
-                                {`- Купить ${item.is_all_in ? "на все": item.value_buy} ${item.currency_buy} за ${item.currency_sell} по курсу ${item.trigger_course} (создан ${item.created_at.split("T")[0]})`}
+                                {`- Купить ${item.is_all_in ? "на все": item.value_buy} 
+                                    ${item.currency_buy} за ${item.currency_sell} 
+                                    по курсу ${item.trigger_course} 
+                                    (создан ${item.created_at.split("T")[0]})
+                                    ${item.is_active === 1 ? "активный" : "не активный"}
+                                `}
                                 <button onClick={() => handlerDeletePreorder(item.id)}>Удалить</button>
                             </div>
                         )

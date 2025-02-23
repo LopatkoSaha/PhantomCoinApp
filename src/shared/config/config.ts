@@ -1,3 +1,11 @@
+import { Wallet } from "shared/components/Wallet/Wallet";
+import { BuyCurrency } from "shared/components/BuyCurrency/BuyCurrency";
+import { Preorder } from "shared/components/Preorder/Preorder";
+import { PreorderStore } from "shared/components/PreorderStore/PreorderStore";
+
+export const intervalChenged = 3000;
+export const coursesUpdateInterval = 10000;
+
 export const currencyList = {
   bitcoin:
     "https://s1.bycsi.com/app/assets/token/62942131f968981af06a885a79f864ba.svg",
@@ -29,5 +37,22 @@ export const lexiconCuts = {
   usdCoin: "USDC",
 };
 
-export const intervalChenged = 3000;
-export const coursesUpdateInterval = 10000;
+export const dictionary = {
+  Wallet: "Кошелек",
+  BuyCurrency: "Покупка",
+  Preorder: "Предзаказ",
+  PreorderStore: "История предзаказов",
+};
+
+export const personalTabs = {
+  Wallet: Wallet, 
+  BuyCurrency: BuyCurrency, 
+  Preorder: Preorder, 
+  PreorderStore: PreorderStore
+} as const;
+
+export type TPersonalTabs = keyof typeof personalTabs;
+
+export interface PersonalPageProps {
+  tabProps: Record<TPersonalTabs, React.FC>;
+};
