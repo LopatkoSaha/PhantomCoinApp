@@ -1,0 +1,33 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 70%;
+    height: 70%;
+    padding: 1rem 0;
+    margin: auto;
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        .header {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+        }
+        .content {
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            align-items: center;
+            width: 90%;
+            height: 80%;
+            text-align: center;
+        }
+        .btnQR {
+            margin-top: 2rem;
+        }
+    }
+}

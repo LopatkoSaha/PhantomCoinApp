@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 
 import style from "./PreorderStore.module.scss";
@@ -15,8 +15,13 @@ const optionShow = ["Активные", "Не активные", "Все"];
 export const PreorderStore = () => {
     const dispatch: AppDispatch = useDispatch();
     const icons: CoinIconsState = useAppSelector((state) => state.coinIcons);
+    const courses = useAppSelector((state) => state.courses);
     const preorders = useAppSelector((state) => state.preorders);
     const [condinionShow, setConditionShow] = useState(optionShow[0]);
+
+     useEffect(() => {
+        preordersGet(dispatch);
+      }, [courses]);
 
     const handleShowPreorders = (event: React.ChangeEvent<HTMLSelectElement>) => {
         setConditionShow(event.target.value)
