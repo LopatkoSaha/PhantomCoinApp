@@ -77,7 +77,7 @@ export const BuyCurrency = () => {
                     <label htmlFor="dropdown">За какую валюту купить: </label>
                     <select id="dropdown" value={saleName} onChange={handleSaleChange}>
                         {currencyNames.map((name) => {
-                            return <option value={name}>{name}</option>
+                            return <option value={name} key={name}>{name}</option>
                         })}
                     </select>
                 </div>
@@ -85,7 +85,7 @@ export const BuyCurrency = () => {
                     <label htmlFor="dropdown">Какую валюту купить: </label>
                     <select id="dropdown" value={buyName} onChange={handleBuyChange}>
                         {currencyNames.map((name) => {
-                            return <option value={name}>{name}</option>
+                            return <option value={name} key={name}>{name}</option>
                         })}
                     </select>
                 </div>

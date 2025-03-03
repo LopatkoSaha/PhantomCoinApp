@@ -36,7 +36,7 @@ export const Wallet = () => {
                     {Object.entries(wallet).map(([name, value]) => {
                         if(name === "id" || name === "created_at" || name === "usd" || value < 0.01) return
                         return (
-                            <div className={style.card} id={name}>
+                            <div className={style.card} id={name} key={name}>
                             <div className={style.img}>
                                 <img src={icons[name as string]} alt={name as string} />
                             </div>
