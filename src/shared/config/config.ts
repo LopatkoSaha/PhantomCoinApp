@@ -4,9 +4,6 @@ import { Preorder } from "shared/components/Preorder/Preorder";
 import { PreorderStore } from "shared/components/PreorderStore/PreorderStore";
 import { Telegram } from "shared/components/Telegram/Telegram";
 
-export const intervalChenged = 3000;
-export const coursesUpdateInterval = 10000;
-
 export const lexiconCuts = {
   bitcoin: "BTC",
   bitTorrent: "BTT",
@@ -40,3 +37,5 @@ export type TPersonalTabs = keyof typeof personalTabs;
 export interface PersonalPageProps {
   tabProps: Record<TPersonalTabs, React.FC>;
 };
+
+export const WS_URL = "ws://localhost:8080";

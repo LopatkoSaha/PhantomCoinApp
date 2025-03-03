@@ -47,7 +47,7 @@ export const PreorderStore = () => {
                     <label htmlFor="dropdown">Показать: </label>
                     <select id="dropdown" value={condinionShow} onChange={handleShowPreorders}>
                         {optionShow.map((name) => {
-                            return <option value={name}>{name}</option>
+                            return <option value={name} key={name}>{name}</option>
                         })}
                     </select>
                 </div>
