@@ -5,6 +5,7 @@ import { MainPage } from "pages/MainPage";
 import { GamePage } from "pages/GamePage";
 import { MarketPage } from "pages/MarketPage";
 import { PersonalPage } from "pages/Personal";
+import { personalTabs } from "../config";
 import { NotFoundPage } from "pages/NotFoundPage";
 
 export enum AppRoutes {
@@ -48,8 +49,9 @@ export const routeConfig: Record<AppRoutes, RouteProps> = {
 
   [AppRoutes.PERSONAL]: {
     path: RoutePath.personal,
-    element: <PersonalPage />,
+    element: <PersonalPage tabProps={personalTabs}/>,
   },
+  
   // [AppRoutes.NOT_FOUND]: {
   //   path: RoutePath.notFound,
   //   element: <NotFoundPage />,

@@ -8,6 +8,7 @@ import { showModal } from "app/store/slices/modalSlice";
 import { axiosLogin } from "api/axios/userAuth";
 import { userGet } from "api/axios/userGet";
 import { walletGet } from "api/axios/walletGet";
+import { preordersGet } from "api/axios/preordersGet";
 
 type LogFormProps = {
   onClose: () => void;
@@ -32,6 +33,7 @@ export const LogForm: React.FC<LogFormProps> = ({ onClose }) => {
     await axiosLogin({ email: data.login, password: data.password }, dispatch);
     userGet(dispatch);
     walletGet(dispatch);
+    preordersGet(dispatch);
     onClose();
     dispatch(showModal({ modalType: "" }));
   };

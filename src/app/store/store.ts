@@ -6,6 +6,7 @@ import courses from "./slices/coursesSlice";
 import coinIcons from "./slices/coinIconsSlice";
 import toggleGames from "./slices/toggleGamesSlice";
 import wallet from "./slices/walletSlice";
+import preorders from "./slices/preorderSlice";
 
 export const store = configureStore({
   reducer: {
@@ -16,6 +17,8 @@ export const store = configureStore({
     coinIcons: coinIcons,
     toggleGames: toggleGames,
     wallet: wallet,
+    preorders: preorders,
+
   },
 });
 

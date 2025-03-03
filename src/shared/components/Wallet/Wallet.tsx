@@ -1,5 +1,10 @@
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+
 import style from ".//Wallet.module.scss";
 import { useAppSelector } from "app/store/useAppSelector";
+import { AppDispatch } from "app/store/store";
+import { walletGet } from "api/axios/walletGet";
 
 interface WalletState {
     [key: string]: number;
@@ -10,8 +15,14 @@ interface WalletState {
   }
 
 export const Wallet = () => {
+    const dispatch: AppDispatch = useDispatch();
   const wallet: WalletState = useAppSelector((state) => state.wallet);
   const icons: CoinIconsState = useAppSelector((state) => state.coinIcons);
+  const courses = useAppSelector((state) => state.courses);
+
+  useEffect(() => {
+    walletGet(dispatch);
+  }, [courses]);
 
   return (
     <div className={style.wrapper}>

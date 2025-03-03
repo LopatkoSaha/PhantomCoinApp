@@ -1,0 +1,36 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 70%;
+    height: 70%;
+    padding: 1rem 0;
+    margin: auto;
+    .header {
+        font-size: 1.2rem;
+        font-weight: 700;
+    }
+    .optsions {
+        align-self: self-start;
+    }
+    .content {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: center;
+        width: 90%;
+        height: 80%;
+        overflow-y: auto;
+        overflow-x: hidden;
+        padding: 0.5rem;
+        .card {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+    }
+
+}
