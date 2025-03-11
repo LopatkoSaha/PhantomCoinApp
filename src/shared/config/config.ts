@@ -3,6 +3,7 @@ import { BuyCurrency } from "shared/components/BuyCurrency/BuyCurrency";
 import { Preorder } from "shared/components/Preorder/Preorder";
 import { PreorderStore } from "shared/components/PreorderStore/PreorderStore";
 import { Telegram } from "shared/components/Telegram/Telegram";
+import { Forecast } from "shared/components/Forecast/Forecast";
 
 export const lexiconCuts = {
   bitcoin: "BTC",
@@ -22,6 +23,7 @@ export const dictionary = {
   Preorder: "Предзаказ",
   PreorderStore: "История предзаказов",
   Telegram: "Телеграм",
+  Forecast: "Прогноз ИИ",
 };
 
 export const personalTabs = {
@@ -30,6 +32,7 @@ export const personalTabs = {
   Preorder: Preorder, 
   PreorderStore: PreorderStore,
   Telegram: Telegram,
+  Forecast: Forecast,
 } as const;
 
 export type TPersonalTabs = keyof typeof personalTabs;
