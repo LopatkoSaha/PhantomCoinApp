@@ -6,6 +6,7 @@ import { useAppSelector } from "app/store/useAppSelector";
 import { AppDispatch } from "app/store/store";
 import { forecastPost } from "api/axios/forecastPost";
 import { ForecastToken } from "api/axios/forecastToken";
+import { MatrixEffect } from "shared/elements/MatrixEffect/MatrixEffect";
 
 interface WalletState {
     [key: string]: number;
@@ -118,8 +119,9 @@ export const Forecast = () => {
                 </div>
                 <button className={style.btnForecast} onClick={handlForecast} disabled={!isActive}>Получить прогноз</button>
             </div>
-            <div className={style.containerShowForecast}>{slowdowner}</div>
-            
+            <div className={style.containerShowForecast}>
+                {slowdowner === "Loading..." ? <MatrixEffect /> : slowdowner}
+            </div> 
         </div>
     )
 }

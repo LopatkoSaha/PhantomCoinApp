@@ -2,19 +2,31 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 const coursesSlice = createSlice({
   name: "courses",
-  initialState: {},
+  initialState: {
+    startCourses: {},
+    currentCourses: {}
+  },
   reducers: {
-    setCurrencyCourses: (
+    setCurrentCourses: (
       state,
       action: PayloadAction<Record<string, number>>
     ) => {
       return {
         ...state,
-        ...action.payload,
+        currentCourses: action.payload,
+      };
+    },
+    setStartCourses: (
+      state,
+      action: PayloadAction<Record<string, number>>
+    ) => {
+      return {
+        ...state,
+        startCourses: action.payload,
       };
     },
   },
 });
 
-export const { setCurrencyCourses } = coursesSlice.actions;
+export const { setCurrentCourses, setStartCourses } = coursesSlice.actions;
 export default coursesSlice.reducer;

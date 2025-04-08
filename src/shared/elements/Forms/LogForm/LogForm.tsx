@@ -44,6 +44,7 @@ export const LogForm: React.FC<LogFormProps> = ({ onClose }) => {
       <form onSubmit={handleSubmit(onSubmit)} className={style.InputContainer}>
         <input
           placeholder="Введите email"
+          value="saha@com"
           {...register("login", { required: "Логин обязателен" })}
         />
         {errors.login && <span className={style.Error}>{errors.login.message}</span>}
@@ -51,6 +52,7 @@ export const LogForm: React.FC<LogFormProps> = ({ onClose }) => {
         <input
           type="password"
           placeholder="Введите пароль"
+          value="1111"
           {...register("password", { required: "Пароль обязателен" })}
         />
         {errors.password && <span className={style.Error}>{errors.password.message}</span>}

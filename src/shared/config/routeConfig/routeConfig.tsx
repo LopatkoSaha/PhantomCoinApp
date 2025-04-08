@@ -5,6 +5,7 @@ import { MainPage } from "pages/MainPage";
 import { GamePage } from "pages/GamePage";
 import { MarketPage } from "pages/MarketPage";
 import { PersonalPage } from "pages/Personal";
+import { ChartPage } from "pages/ChartPage";
 import { personalTabs } from "../config";
 import { NotFoundPage } from "pages/NotFoundPage";
 
@@ -14,6 +15,7 @@ export enum AppRoutes {
   GAME = "game",
   MARKET = "market",
   PERSONAL = "personal",
+  CHART = "chart",
   // NOT_FOUND = "notFound",
 }
 
@@ -23,6 +25,7 @@ export const RoutePath: Record<AppRoutes, string> = {
   [AppRoutes.GAME]: "/game",
   [AppRoutes.MARKET]: "/market",
   [AppRoutes.PERSONAL]: "/personal",
+  [AppRoutes.CHART]: "/chart/:currency",
   // [AppRoutes.NOT_FOUND]: "*",
 };
 
@@ -50,6 +53,11 @@ export const routeConfig: Record<AppRoutes, RouteProps> = {
   [AppRoutes.PERSONAL]: {
     path: RoutePath.personal,
     element: <PersonalPage tabProps={personalTabs}/>,
+  },
+
+  [AppRoutes.CHART]: {
+    path: RoutePath.chart,
+    element: <ChartPage />,
   },
   
   // [AppRoutes.NOT_FOUND]: {

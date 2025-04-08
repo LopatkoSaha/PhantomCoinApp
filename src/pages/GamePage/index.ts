@@ -1,3 +1,3 @@
-import { GamePageAsync } from "./ui/GamePage.async";
+import { GamePage } from "./ui/GamePage";
 
-export { GamePageAsync as GamePage };
+export { GamePage };
