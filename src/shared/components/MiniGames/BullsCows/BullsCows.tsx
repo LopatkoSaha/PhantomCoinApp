@@ -1,36 +1,34 @@
 import { useState, useEffect } from "react";
 
-import style from "./MinesweeperField.module.scss";
+import style from "./BullsCows.module.scss";
 import { gameInfoPost } from "api/axios/gamesControllers/gameInfoPost";
-import { allGamesOptionsPost } from "api/axios/gamesControllers/allGameOptionsPost";
 import { activeSessionPost } from "api/axios/gamesControllers/activeSessionPost";
 import { startGamePost } from "api/axios/gamesControllers/mimesweeper/startGamePost";
-import { movePost } from "api/axios/gamesControllers/mimesweeper/movePost";
-import { flagPost } from "api/axios/gamesControllers/mimesweeper/flagPost";
+import { movePost } from "api/axios/gamesControllers/bulsCows/movePost";
 import { finishGamePost } from "api/axios/gamesControllers/mimesweeper/finishGamePost";
-import { MinesweeperField } from "./MinesweeperField";
+import { BullsCowsField } from "./BullsCowsField";
 import { GameStartMenu } from "../GameStartMenu/GameStartMenu";
 
 export type TGameData = {
-    x: number;
-    y: number;
+    turns: number;
+    moves: Record<string, any>[];
+    quest: string[];
+    colorsCount: number;
+    colors: Record<string, string>;
     status: string;
-    fieldData: any[];
-    bombs: number[];
-    lastMove: number | null;
 }
 
-export const Minesweeper = () => {
+export const BullsCows = () => {
     const [gameInfo, setGameInfo] = useState<Record<string, any> | null>(null);
     const [activeSession, setActiveSession] = useState<TGameData | null>(null);
 
     const fetchInfo = async () => {
-        const info = await gameInfoPost("minesweeper");
+        const info = await gameInfoPost("bullsCows");
         setGameInfo(info);
     };
 
     const fetchSession = async () => {
-        const session = await activeSessionPost("minesweeper");
+        const session = await activeSessionPost("bullsCows");
         setActiveSession(session);
     };
 
@@ -43,22 +41,17 @@ export const Minesweeper = () => {
     }, [gameInfo]);
 
     const startHandler = async (complexity: string, payoutValue: number, payoutCurrency: string) => {
-        const newData = await startGamePost("minesweeper", complexity, payoutValue, payoutCurrency);
+        const newData = await startGamePost("bullsCows", complexity, payoutValue, payoutCurrency);
         setActiveSession(newData);
     };
 
-    const moveHandler = async (clickId: number) => {
-        const newData = await movePost(clickId);
-        setActiveSession(newData);
-    };
-
-    const flagHandler = async (clickId: number) => {
-        const newData = await flagPost(clickId);
+    const moveHandler = async (moveData: string[]) => {
+        const newData = await movePost(moveData);
         setActiveSession(newData);
     };
 
     const finishGameHandler = async () => {
-        await finishGamePost("minesweeper");
+        await finishGamePost("bullsCows");
         setActiveSession(null);
     };
 
@@ -80,13 +73,12 @@ export const Minesweeper = () => {
         },
         startHandler,
     };
-
+    
     const propsField = activeSession
     ? {
-          gameData: activeSession,
-          moveHandler,
-          flagHandler,
-          finishGameHandler,
+        gameData: activeSession,
+        moveHandler,
+        finishGameHandler,
       }
     : null;
 
@@ -94,7 +86,7 @@ export const Minesweeper = () => {
         <div className={style.wrapper}>
             <div className={style.gameContainer}>
                 {!gameInfo && !activeSession ? <div>Loading...</div> : null}
-                {activeSession && propsField && <MinesweeperField {...propsField} />}
+                {activeSession && propsField && <BullsCowsField {...propsField} />}
                 {!activeSession && gameInfo && <GameStartMenu {...propsStart} />}
             </div>
 

@@ -6,8 +6,6 @@ export const activeSessionPost = async (nameGame: string) => {
         { withCredentials: true }
     )
     .then(response => {
-        
-        console.log("response: ", response);
         return response.data;  
     })
     .catch(error => {

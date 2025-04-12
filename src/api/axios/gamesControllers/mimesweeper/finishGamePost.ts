@@ -1,8 +1,8 @@
 import axios from 'axios';
 
-export const finishGamePost = async () => {
+export const finishGamePost = async (nameGame: string,) => {
     await axios.post(
-        'http://localhost:3600/games/minesweeper/stop',
+        `http://localhost:3600/games/${nameGame}/stop`,
         {},
         { withCredentials: true }
     )

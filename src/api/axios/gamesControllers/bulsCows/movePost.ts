@@ -1,9 +1,9 @@
 import axios from 'axios';
 
-export const startGamePost = async (nameGame: string, complexity: string, payoutValue: number, payoutCurrency: string) => {
+export const movePost = async (moveData: string[]) => {
     return axios.post(
-        `http://localhost:3600/games/${nameGame}/start`,
-        {complexity, payoutValue, payoutCurrency},
+        'http://localhost:3600/games/bullsCows/move',
+        {moveData},
         { withCredentials: true }
     )
     .then(response => { 

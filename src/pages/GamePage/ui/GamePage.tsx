@@ -4,14 +4,14 @@ import style from "./GamePage.module.scss";
 import { ColorSwap } from "shared/components/MiniGames/ColorSwap/ColorSwap";
 import { CheckIQ } from "shared/components/MiniGames/CheckIQ/CheckIQ";
 import { FindCircule } from "shared/components/MiniGames/FindCircule/FindCircule";
-import { BullsAndCows } from "shared/components/MiniGames/BullsAndCows/BullsAndCows";
+import { BullsCows } from "shared/components/MiniGames/BullsCows/BullsCows";
 import { Minesweeper } from "shared/components/MiniGames/Minesweeper/Minesweeper";
 import { useCheckAuth } from "shared/hooks/useCheckAuth";
 import { presentation } from "./presentation";
 
 export const games: Record<string, FC> = {
   Minesweeper: Minesweeper,
-  BullsAndCows: BullsAndCows,
+  BullsCows: BullsCows,
   ColorSwap: ColorSwap,
   CheckIQ: CheckIQ,
   FindCircule: FindCircule,
