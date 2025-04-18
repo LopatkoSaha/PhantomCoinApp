@@ -3,8 +3,8 @@ import { useState, useEffect } from "react";
 import style from "./MinesweeperField.module.scss";
 import { gameInfoPost } from "api/axios/gamesControllers/gameInfoPost";
 import { allGamesOptionsPost } from "api/axios/gamesControllers/allGameOptionsPost";
-import { activeSessionPost } from "api/axios/gamesControllers/activeSessionPost";
-import { startGamePost } from "api/axios/gamesControllers/mimesweeper/startGamePost";
+import { activeSessionGet } from "api/axios/gamesControllers/activeSessionGet";
+import { startGamePost } from "api/axios/gamesControllers/startGamePost";
 import { movePost } from "api/axios/gamesControllers/mimesweeper/movePost";
 import { flagPost } from "api/axios/gamesControllers/mimesweeper/flagPost";
 import { finishGamePost } from "api/axios/gamesControllers/mimesweeper/finishGamePost";
@@ -30,7 +30,7 @@ export const Minesweeper = () => {
     };
 
     const fetchSession = async () => {
-        const session = await activeSessionPost("minesweeper");
+        const session = await activeSessionGet("minesweeper");
         setActiveSession(session);
     };
 

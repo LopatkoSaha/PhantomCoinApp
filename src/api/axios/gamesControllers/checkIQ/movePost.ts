@@ -1,11 +1,12 @@
 import axios from 'axios';
 
-export const activeSessionPost = async (nameGame: string) => {
-    return axios.get(
-        `http://localhost:3600/games/${nameGame}/check`,
+export const movePost = async (moveData: number) => {
+    return axios.post(
+        'http://localhost:3600/games/checkIQ/move',
+        {moveData},
         { withCredentials: true }
     )
-    .then(response => {
+    .then(response => { 
         return response.data;  
     })
     .catch(error => {

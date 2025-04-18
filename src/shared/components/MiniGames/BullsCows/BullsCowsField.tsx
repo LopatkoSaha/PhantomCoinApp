@@ -35,9 +35,8 @@ export const BullsCowsField = (props: TProps) => {
     const isValidMove = field.includes("");
 
     const resultMove = field.map((item) => {
-        const key = Object.entries(colors).find(([, val]) => val === item)?.[0];
-        if(key) return key;
-        return "";
+        const [key] = Object.entries(colors).find(([, val]) => val === item)!;
+        return key;
     });
 
     const clickMoveHandler = () => {

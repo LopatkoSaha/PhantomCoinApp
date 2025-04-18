@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 
 import style from "./BullsCows.module.scss";
 import { gameInfoPost } from "api/axios/gamesControllers/gameInfoPost";
-import { activeSessionPost } from "api/axios/gamesControllers/activeSessionPost";
-import { startGamePost } from "api/axios/gamesControllers/mimesweeper/startGamePost";
+import { activeSessionGet } from "api/axios/gamesControllers/activeSessionGet";
+import { startGamePost } from "api/axios/gamesControllers/startGamePost";
 import { movePost } from "api/axios/gamesControllers/bulsCows/movePost";
 import { finishGamePost } from "api/axios/gamesControllers/mimesweeper/finishGamePost";
 import { BullsCowsField } from "./BullsCowsField";
@@ -28,7 +28,7 @@ export const BullsCows = () => {
     };
 
     const fetchSession = async () => {
-        const session = await activeSessionPost("bullsCows");
+        const session = await activeSessionGet("bullsCows");
         setActiveSession(session);
     };
 
