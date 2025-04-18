@@ -7,6 +7,7 @@ import { showModal } from "app/store/slices/modalSlice";
 import { setUser } from "app/store/slices/userSlice";
 import { useAppSelector } from "app/store/useAppSelector";
 import { axiosLogout } from "api/axios/userAuth";
+import { useIsAuth } from "shared/hooks/useCheckAuth";
 
 type logProps = {
   handler: () => void;
@@ -14,7 +15,7 @@ type logProps = {
 
 export const NavbarBtnLog = ({ handler }: logProps) => {
   const dispatch: AppDispatch = useDispatch();
-  const user = useAppSelector((state) => state.user);
+  const [isAuth] = useIsAuth();
 
   const handleShowModal = () => {
     dispatch(showModal({ modalType: "log" }));
@@ -32,7 +33,7 @@ export const NavbarBtnLog = ({ handler }: logProps) => {
 
   return (
     <>
-      {!user.name && (
+      {!isAuth && (
         <div className={style.navBtns}>
           <Button
             cb={handleShowModal}
@@ -44,7 +45,7 @@ export const NavbarBtnLog = ({ handler }: logProps) => {
           />
         </div>
       )}
-      {user.name && (
+      {isAuth && (
         <div className={style.navBtns}>
           <Button
             cb={handlerLoginout}

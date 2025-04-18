@@ -6,7 +6,7 @@ import { PageLoader } from "shared/elements/PageLoader/PageLoader";
 
 const AppRouter = () => {
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<div className="loading">Loading...</div>}>
       <Routes>
         {Object.values(routeConfig).map(({ element, path }) => (
           <Route
@@ -14,7 +14,7 @@ const AppRouter = () => {
             path={path}
             element={
               <Suspense fallback={<PageLoader />}>
-                <div className="page-wrapper">{element}</div>
+                {element}
               </Suspense>
             }
           />

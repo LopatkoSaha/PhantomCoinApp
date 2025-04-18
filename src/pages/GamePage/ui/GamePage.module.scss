@@ -1,0 +1,45 @@
+.wrapperGamePage {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    width: 70%;
+    height: 100%;
+    margin: auto;
+    button {
+        align-self: flex-start;
+    }
+}
+
+.containerOptions {
+    
+}
+
+.header {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.presentation {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.buyContent {}
+
+.buyContent {
+    margin-bottom: 2rem;
+}
+
+.btnPlay {
+    display: flex;
+    justify-self: center;
+}
+
+.containerGame {
+    width: 100%;
+    height: 100%;
+}
+
+.btnBack {}

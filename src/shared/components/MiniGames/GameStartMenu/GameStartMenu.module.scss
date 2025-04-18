@@ -1,0 +1,49 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.header {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.discriptionGame {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.container {
+  width: 100%;
+  align-self: self-start;
+  margin-bottom: 2rem;
+  .complexity {
+    margin-bottom: 1rem;
+  }
+  
+  .currency {
+    margin-bottom: 1rem;
+  }
+  
+  .bid {
+    margin-bottom: 1rem;
+  }
+}
+
+.discriptionConplexity {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.btnContainer {
+  align-self: self-start;
+  .btnStart {
+
+  }
+}

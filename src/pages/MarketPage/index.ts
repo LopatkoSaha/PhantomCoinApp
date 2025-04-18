@@ -1,3 +1,3 @@
-import { MarketPageAsync } from "./ui/MarketPage.async";
+import { MarketPage } from "./ui/MarketPage";
 
-export { MarketPageAsync as MarketPage };
+export { MarketPage };

@@ -41,4 +41,5 @@ export interface PersonalPageProps {
   tabProps: Record<TPersonalTabs, React.FC>;
 };
 
-export const WS_URL = "ws://localhost:8080";
+export const WS_ALL_URL = "ws://localhost:8008/allCourses";
+export const WS_ONE_URL = "ws://localhost:8009/oneCourse";

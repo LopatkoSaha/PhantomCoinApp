@@ -1,4 +1,4 @@
-import { Suspense } from "react";
+import React, { Suspense } from "react";
 
 import "./styles/index.scss";
 import { AppRouter } from "./provider/router";
