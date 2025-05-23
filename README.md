@@ -77,6 +77,7 @@ npm run start-dev
 
 # Сборка production-бандла
 npm run build
+```
 
 ## 🧪 5. Тестирование
 
