@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkphantom_coin=self.webpackChunkphantom_coin||[]).push([[482],{482:(a,e,n)=>{n.r(e),n.d(e,{default:()=>s});const t="AboutPage_AboutWrapper__Bly-2";var c=n(579);const s=()=>(0,c.jsx)(c.Fragment,{children:(0,c.jsx)("div",{className:`${t} animate__animated animate__backInUp`,children:"About"})})}}]);
+//# sourceMappingURL=482.7613488b.chunk.js.map
