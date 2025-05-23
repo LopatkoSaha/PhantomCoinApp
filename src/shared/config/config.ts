@@ -4,6 +4,10 @@ import { Preorder } from "shared/components/Preorder/Preorder";
 import { PreorderStore } from "shared/components/PreorderStore/PreorderStore";
 import { Telegram } from "shared/components/Telegram/Telegram";
 import { Forecast } from "shared/components/Forecast/Forecast";
+import { AllGameOptions } from "shared/components/Admin/AdminGames/AllGameOptions";
+import { AllGamesInfo } from "shared/components/Admin/AdminGames/AllGamesInfo";
+import { UsersList } from "shared/components/Admin/AdminUsers/UsersList";
+import { WalletsList } from "shared/components/Admin/AdminWallets/WalletsList";
 
 export const lexiconCuts = {
   bitcoin: "BTC",
@@ -24,6 +28,10 @@ export const dictionary = {
   PreorderStore: "История предзаказов",
   Telegram: "Телеграм",
   Forecast: "Прогноз ИИ",
+  AllGamesInfo: "Все игры",
+  AllGameOptions: "Oпции игры",
+  UsersList: "Общее",
+  WalletsList: "Общее",
 };
 
 export const personalTabs = {
@@ -43,3 +51,34 @@ export interface PersonalPageProps {
 
 export const WS_ALL_URL = "ws://localhost:8008/allCourses";
 export const WS_ONE_URL = "ws://localhost:8009/oneCourse";
+
+export const AdminGamesTabs = {
+  AllGamesInfo: AllGamesInfo, 
+  AllGameOptions: AllGameOptions, 
+} as const;
+
+export type TAdminGamesTabs = keyof typeof AdminGamesTabs;
+
+export interface AdminGamesPageProps {
+  tabProps: Record<TAdminGamesTabs, React.FC>;
+};
+
+export const AdminUsersTabs = { 
+  UsersList: UsersList,  
+} as const;
+
+export type TAdminUsersTabs = keyof typeof AdminUsersTabs;
+
+export interface AdminUsersPageProps {
+  tabProps: Record<TAdminUsersTabs, React.FC>;
+};
+
+export const AdminWalletsTabs = { 
+  WalletsList: WalletsList,  
+} as const;
+
+export type TAdminWalletsTabs = keyof typeof AdminWalletsTabs;
+
+export interface AdminWalletsPageProps {
+  tabProps: Record<TAdminWalletsTabs, React.FC>;
+};

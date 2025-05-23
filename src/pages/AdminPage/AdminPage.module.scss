@@ -1,0 +1,36 @@
+.wrapperPersonal {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    width: 100vw;
+    height: calc(100vh - var(--navbar-height)) ;
+    background-color: rgb(226, 221, 221);
+    color:black;
+    .headerPersonal{
+        width: 100%;
+        text-align: center;
+        line-height: 2rem;
+        margin-top: 2vh;
+        font-weight: 600;
+        font-size: 1.5rem;
+        border-bottom: 1px solid black;
+    }
+    .tabmenu {
+        button {
+            background-color: rgb(226, 221, 221);
+            margin: 0 1px 0 0;
+            border-top: none;
+        }
+        .btnActive {
+            background-color: rgb(163, 163, 163);
+        }
+    }
+    .containerPersonal {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 70%;
+        height: 100%;
+    }
+}

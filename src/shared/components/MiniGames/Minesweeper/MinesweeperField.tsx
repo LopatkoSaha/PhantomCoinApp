@@ -50,7 +50,7 @@ export const MinesweeperField = (props: TProps) => {
 
     const rows = Array.from({ length: y }, (_, idx) => {
         return (
-            <div className={style.row}>
+            <div className={style.row} key={idx}>
                 {cells.slice(idx * x, idx * x + x)}
             </div>
         )

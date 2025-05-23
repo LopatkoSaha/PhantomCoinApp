@@ -29,8 +29,8 @@ export const Preorder = () => {
     const [saleName, setSaleName] = useState("usd");
     const [buyName, setBuyName] = useState("usd");
     const [quantity, setQuantity] = useState("");
-    const [isAllIn, setIsAllIn] = useState(false);
     const [trigger, setTrigger] = useState("");
+    const [isAllIn, setIsAllIn] = useState(false);
 
     const handleSaleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         setSaleName(event.target.value);

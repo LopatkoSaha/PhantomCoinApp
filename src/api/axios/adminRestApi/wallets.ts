@@ -1,9 +1,9 @@
 import axios from 'axios';
 
-export const gameInfoPost = async (nameGame: string) => {
+export const updataWalletPost = async (id: number, coins: Record<string, any>) => {
     return axios.post(
-        'http://localhost:3600/games/info/getGameInfo',
-        {nameGame},
+        'http://localhost:3600/wallet/updataAdmin',
+        {id, coins},
         { withCredentials: true }
     )
     .then(response => { 

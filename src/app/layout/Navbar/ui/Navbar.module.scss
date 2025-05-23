@@ -98,15 +98,20 @@
     display: none;
   }
 
+  .iconUser {
+
+  }
+
   .personalBtn {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 40%;
-    width: 40%;
+    width: 40px;
+    height: 40px;
+    margin-right: 30px;
     .personalImg {
-      height: 50%;
-      width: 50%;
+      height: 100%;
+      width: 100%;
       border-radius: 50%;
     }
   }

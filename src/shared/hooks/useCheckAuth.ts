@@ -5,13 +5,13 @@ import { RoutePath, AppRoutes } from "shared/config/routeConfig/routeConfig";
 
 export const useCheckAuth = () => {
     const navigate = useNavigate();
-    const {id} = useAppSelector((state) => state.user);
-    if(!id) {
+    const user = useAppSelector((state) => state.user);
+    if(!user) {
       navigate(RoutePath[AppRoutes.MAIN]);
     }
 };
 
 export const useIsAuth = () => {
-  const {id} = useAppSelector((state) => state.user);
-  return [!!id];
+  const user = useAppSelector((state) => state.user);
+  return [!!user];
 };

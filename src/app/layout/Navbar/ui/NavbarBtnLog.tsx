@@ -5,7 +5,6 @@ import { Button, ButtonSize, ButtonTheme } from "shared/elements/Button/Button";
 import { AppDispatch } from "app/store/store";
 import { showModal } from "app/store/slices/modalSlice";
 import { setUser } from "app/store/slices/userSlice";
-import { useAppSelector } from "app/store/useAppSelector";
 import { axiosLogout } from "api/axios/userAuth";
 import { useIsAuth } from "shared/hooks/useCheckAuth";
 
@@ -23,13 +22,9 @@ export const NavbarBtnLog = ({ handler }: logProps) => {
   };
 
   const handlerLoginout = () => {
-    dispatch(setUser({
-      id: "",
-      name: "",
-      walletId: "",
-    }));
+    dispatch(setUser(null));
     axiosLogout(dispatch);
-  }
+  };
 
   return (
     <>

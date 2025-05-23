@@ -1,0 +1,52 @@
+.paginationWrapper {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.5rem;
+}
+
+.elem {
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+    text-align: center;
+}
+
+.active {
+    color: blue;
+    cursor: default;
+}
+
+.pageSizeContainer {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    left: 15%;
+    font-size: 1rem;
+    label {
+        margin-right: 1rem;
+    }
+    select {
+        padding: 0 5px;
+    }
+}
+
+.inputContainer {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    right: 15%;
+    font-size: 1rem;
+    button {
+        margin-left: 1rem;
+    }
+}
+
+.inputTitle {
+    margin-right: 1rem;
+}

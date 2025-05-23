@@ -10,15 +10,16 @@ type TProps = {
 
 export const GameTimer = ({ endOfGame, stopInterval ,handleFinish }: TProps) => {
     const [timer, setTimer] = useState<number | null>(null);
+    
     useEffect(() => {
         const TimerInterval = setInterval(() => {
             if (stopInterval) {
                 clearInterval(TimerInterval);
                 return;
             }
-            const timeLeft = Math.max(0, Math.floor((endOfGame - Date.now()) / 1000));
-            setTimer(timeLeft);
-            if(timeLeft === 0) {
+            const timeLeft = Math.floor((endOfGame - Date.now()) / 1000);
+            setTimer(timeLeft > 0 ? timeLeft : 0);
+            if(timeLeft === -1) {
                 handleFinish();
                 clearInterval(TimerInterval);
             }

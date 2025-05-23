@@ -1,17 +1,29 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
 
 import style from "./Navbar.module.scss";
 import { NavbarLogo } from "./NavbarLogo";
 import { NavbarLinks } from "./NavbarLinks";
+import { NavbarAdmin } from "./NavbarAdmin";
 import { NavbarBtnLog } from "./NavbarBtnLog";
 import { NavbarBtnReg } from "./NavbarBtnReg";
 import { AppLink } from "shared/elements/AppLink/AppLink";
 import { RoutePath } from "shared/config/routeConfig/routeConfig";
 import { useAppSelector } from "app/store/useAppSelector";
+import { AppDispatch } from "app/store/store";
+import { userGet } from "api/axios/userGet";
+import { walletGet } from "api/axios/walletGet";
 
 export const Navbar = () => {
+  const dispatch: AppDispatch = useDispatch();
   const [showBurgerBtn, setShowBurgerBtn] = useState(true);
   const user = useAppSelector((state) => state.user);
+
+
+  useEffect(() => {
+    userGet(dispatch);
+    walletGet(dispatch);
+  },[])
 
   const hendlerBurger = () => {
     setShowBurgerBtn((prev) => !prev);
@@ -22,7 +34,7 @@ export const Navbar = () => {
       <NavbarLogo />
       <div className={style.NavPanel}>
         <NavbarLinks />
-        {user.name && (
+        {user?.name && (
           <AppLink to={RoutePath.personal} className={style.iconUser}>
             <div className={style.personalBtn}>
               <img
@@ -33,6 +45,7 @@ export const Navbar = () => {
             </div>
           </AppLink>
         )}
+        <NavbarAdmin />
         <div className={style.NavBtns}>
           <NavbarBtnLog handler={hendlerBurger} />
           <NavbarBtnReg handler={hendlerBurger} />

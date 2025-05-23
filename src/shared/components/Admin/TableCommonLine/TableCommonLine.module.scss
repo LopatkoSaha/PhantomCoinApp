@@ -1,0 +1,99 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    width: 100%;
+    height: 60%;
+    overflow-y: auto;
+}
+
+.tableHeader {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    width: 100%;
+    height: 10%;
+    margin: 10px 0;
+    .cellHeader {
+        width: 20%;
+        font-weight: 700;
+    }
+}
+
+.card {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    width: 100%;
+    height: 10%;
+    margin: 10px 0;
+    .cell {
+        width: 20%;
+    }
+}
+
+.formWrapper {
+    width: 50%;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    z-index: 110;
+}
+
+.btnFormContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+    gap: 1rem;
+}
+
+.inputTitle {
+    font-weight: 600;
+}
+
+.header {
+    font-weight: 600;
+}
+
+.cellHeader {
+
+}
+
+.clickabel {
+    cursor: pointer;
+}
+
+.cellHeader {
+    &.asc::after {
+      content: '↑';
+      display: inline-block;
+      margin-left: 4px;
+      font-size: 1rem;
+    }
+  
+    &.desc::after {
+      content: '↓';
+      display: inline-block;
+      margin-left: 4px;
+      font-size: 1rem;
+    }
+  }
+
+  button {
+    cursor: pointer;
+    padding: 0 5px;
+  }
