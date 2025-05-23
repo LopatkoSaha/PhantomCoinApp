@@ -6,7 +6,10 @@ import { GamePage } from "pages/GamePage";
 import { MarketPage } from "pages/MarketPage";
 import { PersonalPage } from "pages/Personal";
 import { ChartPage } from "pages/ChartPage";
-import { personalTabs } from "../config";
+import { personalTabs, AdminGamesTabs, AdminUsersTabs, AdminWalletsTabs } from "../config";
+import { AdminUsersPage } from "pages/AdminPage/AdminUsersPage";
+import { AdminWalletsPage } from "pages/AdminPage/AdminWalletsPage";
+import { AdminGamesPage } from "pages/AdminPage/AdminGamesPage";
 import { NotFoundPage } from "pages/NotFoundPage";
 
 export enum AppRoutes {
@@ -16,6 +19,9 @@ export enum AppRoutes {
   MARKET = "market",
   PERSONAL = "personal",
   CHART = "chart",
+  USERS = "adminUsers",
+  WALLETS = "adminWallets",
+  GAMES = "adminGames",
   // NOT_FOUND = "notFound",
 }
 
@@ -26,6 +32,9 @@ export const RoutePath: Record<AppRoutes, string> = {
   [AppRoutes.MARKET]: "/market",
   [AppRoutes.PERSONAL]: "/personal",
   [AppRoutes.CHART]: "/chart/:currency",
+  [AppRoutes.USERS]: "/adminUsers",
+  [AppRoutes.WALLETS]: "/adminWallets",
+  [AppRoutes.GAMES]: "/adminGames",
   // [AppRoutes.NOT_FOUND]: "*",
 };
 
@@ -58,6 +67,21 @@ export const routeConfig: Record<AppRoutes, RouteProps> = {
   [AppRoutes.CHART]: {
     path: RoutePath.chart,
     element: <ChartPage />,
+  },
+
+  [AppRoutes.USERS]: {
+    path: RoutePath.adminUsers,
+    element: <AdminUsersPage tabProps={AdminUsersTabs}/>,
+  },
+
+  [AppRoutes.WALLETS]: {
+    path: RoutePath.adminWallets,
+    element: <AdminWalletsPage tabProps={AdminWalletsTabs}/>,
+  },
+
+  [AppRoutes.GAMES]: {
+    path: RoutePath.adminGames,
+    element: <AdminGamesPage tabProps={AdminGamesTabs}/>,
   },
   
   // [AppRoutes.NOT_FOUND]: {

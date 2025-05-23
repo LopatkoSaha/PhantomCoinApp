@@ -13,3 +13,16 @@ export const walletGet = async (dispatch: Dispatch) => {
         dispatch(showMessage({msgType: "warning", msgText: error.errName}));
     });
 }
+
+export const allWallesInfotGet = async () => {
+    return axios.get(
+        'http://localhost:3600/wallet/getAllInfo',
+        { withCredentials: true }
+    )
+    .then(response => { 
+        return response.data;  
+    })
+    .catch(error => {
+        console.error(error.response?.data?.message || "Произошла ошибка");
+    });
+}

@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 
-import style from "./Personal.module.scss";
+import style from "./AdminPage.module.scss";
 import { RootState } from "app/store/store";
 import { useAppSelector } from "app/store/useAppSelector";
-import { PersonalPageProps, TPersonalTabs, dictionary } from "shared/config/config";
+import { AdminUsersPageProps, TAdminUsersTabs, dictionary } from "shared/config/config";
 
-export const PersonalPage: React.FC<PersonalPageProps> = ({tabProps}) => {
+export const AdminUsersPage: React.FC<AdminUsersPageProps> = ({tabProps}) => {
 
   const user = useAppSelector((state: RootState) => state.user);
   const isUser = Boolean(user?.name);
 
-  const [activeTab, setActiveTab] = useState<TPersonalTabs>(Object.keys(tabProps)[0] as TPersonalTabs);
+  const [activeTab, setActiveTab] = useState<TAdminUsersTabs>(Object.keys(tabProps)[0] as TAdminUsersTabs);
 
   if (!tabProps || Object.keys(tabProps).length === 0) {
     return <div>Загрузка...</div>; 
@@ -23,7 +23,7 @@ export const PersonalPage: React.FC<PersonalPageProps> = ({tabProps}) => {
           <div className={style.headerPersonal}>{dictionary[activeTab]}</div>
           <div className={style.tabmenu}>
             {Object.keys(tabProps).map((name) => {
-              const tabName = name as TPersonalTabs;
+              const tabName = name as TAdminUsersTabs;
               return (
                 <button  className={tabName === activeTab ? style.btnActive : ""} key={tabName} onClick={() => setActiveTab(tabName)}>{dictionary[tabName]}</button>
               )
